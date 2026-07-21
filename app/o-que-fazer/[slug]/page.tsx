@@ -7,6 +7,7 @@ import {
   guideExists,
   PILLAR_GUIDE_SLUGS,
 } from "@/lib/mdx";
+import { BackToHomeHeader } from "@/components/layout/BackToHomeHeader";
 import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { PlaceJsonLd } from "@/components/schema/PlaceJsonLd";
 import { pageMetadata } from "@/lib/seo";
@@ -52,6 +53,7 @@ export default async function GuidePage({ params }: Params) {
 
   return (
     <main className="w-full px-6 pt-10 pb-24 md:px-16 lg:px-24">
+      <BackToHomeHeader />
       <PlaceJsonLd name={frontmatter.title} description={frontmatter.description} />
       <BreadcrumbJsonLd
         items={[

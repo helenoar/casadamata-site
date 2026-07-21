@@ -40,6 +40,7 @@ export default function AvaliacoesPage() {
 
   return (
     <main className="w-full px-6 pt-10 pb-24 md:px-16 lg:px-24">
+      <BackToHomeHeader />
       <ReviewJsonLd />
       <BreadcrumbJsonLd
         items={[

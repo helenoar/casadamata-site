@@ -18,6 +18,7 @@ export default function OQueFazerPage() {
 
   return (
     <main className="w-full px-6 pt-10 pb-24 md:px-16 lg:px-24">
+      <BackToHomeHeader />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", path: "/" },

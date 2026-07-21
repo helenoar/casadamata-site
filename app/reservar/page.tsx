@@ -27,6 +27,7 @@ export default function ReservarPage() {
 
   return (
     <main className="w-full px-6 pt-10 pb-28 text-center md:px-16 lg:px-24">
+      <BackToHomeHeader />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", path: "/" },

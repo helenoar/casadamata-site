@@ -17,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function FaqPage() {
   return (
     <main className="w-full px-6 pt-10 pb-24 md:px-16 lg:px-24">
+      <BackToHomeHeader />
       <FaqJsonLd />
       <BreadcrumbJsonLd
         items={[

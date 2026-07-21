@@ -1,10 +1,38 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import Link from "next/link";
 
 import { property } from "@/content/data/property";
 import { locationFacts } from "@/content/data/location-facts";
 
+const HERO_PHOTOS = [
+  {
+    src: '/images/hero-rede-vinho.jpg',
+    alt: 'Rede com taças de vinho na varanda da Casa da Mata, em meio à Mata Atlântica',
+  },
+  {
+    src: '/images/chuveiro-externo.jpg',
+    alt: 'Chuveiro externo de madeira da Casa da Mata',
+  },
+  {
+    src: '/images/jantar-externo.jpg',
+    alt: 'Mesa de jantar externa da Casa da Mata em meio ao jardim',
+  },
+];
+
 export function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev === HERO_PHOTOS.length - 1 ? 0 : prev + 1));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const guestFavoriteBadge = property.badges.find(
     (badge) => badge.label === "Preferido dos hóspedes",
   );
@@ -61,34 +89,25 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="grid h-[460px] grid-cols-2 gap-3">
-        <div className="group col-span-2 h-[260px] overflow-hidden border-t-[3px] border-terracota">
-          <Image
-            src="/images/hero-rede-vinho.jpg"
-            alt="Rede com taças de vinho na varanda da Casa da Mata, em meio à Mata Atlântica"
-            width={900}
-            height={600}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
-            priority
-          />
-        </div>
-        <div className="group h-[184px] overflow-hidden border-t-[3px] border-terracota">
-          <Image
-            src="/images/chuveiro-externo.jpg"
-            alt="Chuveiro externo de madeira da Casa da Mata"
-            width={450}
-            height={450}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
-          />
-        </div>
-        <div className="group h-[184px] overflow-hidden border-t-[3px] border-terracota">
-          <Image
-            src="/images/jantar-externo.jpg"
-            alt="Mesa de jantar externa da Casa da Mata em meio ao jardim"
-            width={450}
-            height={450}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
-          />
+      <div className="h-[460px] overflow-hidden border-t-[3px] border-terracota relative">
+        <div
+          className="flex h-full transition-transform duration-700 ease-in-out"
+          style={{
+            transform: `translateX(-${currentIndex * 100}%)`,
+          }}
+        >
+          {HERO_PHOTOS.map((photo) => (
+            <div key={photo.src} className="min-w-full h-full">
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                width={900}
+                height={600}
+                className="h-full w-full object-cover"
+                priority
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
