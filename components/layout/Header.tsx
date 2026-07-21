@@ -5,6 +5,7 @@ import { property } from "@/content/data/property";
 
 const NAV_LINKS = [
   { href: "/a-casa", label: "A Casa" },
+  { href: "/o-que-fazer", label: "O que fazer" },
   { href: "/anfitria", label: "Anfitriã" },
   { href: "/avaliacoes", label: "Avaliações" },
   { href: "/faq", label: "FAQ" },
