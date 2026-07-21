@@ -33,75 +33,73 @@ export function Hero() {
   const outdoorAreaSqm = property.capacity.outdoorAreaSqm;
 
   return (
-    <>
-      <section className="grid w-full items-start gap-10 px-6 pt-10 pb-10 md:grid-cols-2 md:px-16 lg:px-24">
-        <div>
-          <div className="mb-12 flex justify-center md:justify-start">
-            <div className="h-48 w-48 md:h-56 md:w-56 shrink-0 overflow-hidden rounded-full bg-off-1 flex items-center justify-center">
-              <Image
-                src="/logo-casa-da-mata.png"
-                alt="Logo Casa da Mata"
-                width={280}
-                height={280}
-                className="h-[145%] w-[145%] object-cover"
-                priority
-              />
-            </div>
+    <section className="grid w-full items-start gap-10 px-6 pt-10 pb-16 md:grid-cols-2 md:px-16 lg:px-24">
+      <div>
+        <div className="mb-12 flex justify-center md:justify-start">
+          <div className="h-48 w-48 md:h-56 md:w-56 shrink-0 overflow-hidden rounded-full bg-off-1 flex items-center justify-center">
+            <Image
+              src="/logo-casa-da-mata.png"
+              alt="Logo Casa da Mata"
+              width={280}
+              height={280}
+              className="h-[145%] w-[145%] object-cover"
+              priority
+            />
           </div>
-
-          <div className="mb-8 text-center md:text-left">
-            <div className="text-oliva-escuro/60 text-sm tracking-widest uppercase mb-6">
-              Casa da Mata · 45
-            </div>
-            <h1
-              className="font-light leading-[0.95] text-oliva-escuro mb-8"
-              style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}
-            >
-              Um refúgio
-              <br />
-              <span className="font-semibold">na Mata Atlântica</span>
-              <br />a {distanceToBh.km} km de BH.
-            </h1>
-          </div>
-
-          <div className="mb-8 flex flex-wrap items-center justify-center gap-3 md:justify-start">
-            <span className="rounded-full border border-oliva-escuro px-3 py-1 text-xs tracking-[0.12em] text-oliva-escuro uppercase">
-              ★ {property.reputation.overallRating.toFixed(1).replace(".", ",")}{" "}
-              · {property.reputation.reviewCount} avaliações
-            </span>
-            {guestFavoriteBadge ? (
-              <span className="text-xs tracking-[0.12em] text-terracota uppercase">
-                {guestFavoriteBadge.label} · Top 5%
-              </span>
-            ) : null}
-          </div>
-
-          <p className="max-w-xl text-lg leading-relaxed text-oliva-escuro text-center md:text-left">
-            Casa contêiner elegante e arejada em meio a {outdoorAreaSqm} m² de
-            mata, com riacho ao pé da casa, fogo de chão e redário.{" "}
-            {locationFacts.condominium}, {locationFacts.city} — a{" "}
-            {distanceToBh.km} km de BH.
-          </p>
         </div>
 
-        <div className="h-[540px] overflow-hidden border-t-[3px] border-terracota relative">
-        {HERO_SLIDESHOW_PHOTOS.map((photo, idx) => (
-          <Image
-            key={photo}
-            src={photo}
-            alt={`Foto da Casa da Mata ${idx + 1}`}
-            width={900}
-            height={600}
-            className={`absolute h-full w-full object-cover transition-opacity duration-700 ${
-              idx === currentPhoto ? 'opacity-100' : 'opacity-0'
-            }`}
-            priority={idx === 0}
-          />
-        ))}
-      </div>
-      </section>
+        <div className="mb-8 text-center md:text-left">
+          <div className="text-oliva-escuro/60 text-sm tracking-widest uppercase mb-6">
+            Casa da Mata · 45
+          </div>
+          <h1
+            className="font-light leading-[0.95] text-oliva-escuro mb-8"
+            style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}
+          >
+            Um refúgio
+            <br />
+            <span className="font-semibold">na Mata Atlântica</span>
+            <br />a {distanceToBh.km} km de BH.
+          </h1>
+        </div>
 
-      <section className="px-6 pb-16 md:px-16 lg:px-24">
+        <div className="mb-8 flex flex-wrap items-center justify-center gap-3 md:justify-start">
+          <span className="rounded-full border border-oliva-escuro px-3 py-1 text-xs tracking-[0.12em] text-oliva-escuro uppercase">
+            ★ {property.reputation.overallRating.toFixed(1).replace(".", ",")}{" "}
+            · {property.reputation.reviewCount} avaliações
+          </span>
+          {guestFavoriteBadge ? (
+            <span className="text-xs tracking-[0.12em] text-terracota uppercase">
+              {guestFavoriteBadge.label} · Top 5%
+            </span>
+          ) : null}
+        </div>
+
+        <p className="mb-10 max-w-xl text-lg leading-relaxed text-oliva-escuro text-center md:text-left">
+          Casa contêiner elegante e arejada em meio a {outdoorAreaSqm} m² de
+          mata, com riacho ao pé da casa, fogo de chão e redário.{" "}
+          {locationFacts.condominium}, {locationFacts.city} — a{" "}
+          {distanceToBh.km} km de BH.
+        </p>
+      </div>
+
+      <div>
+        <div className="h-[540px] overflow-hidden border-t-[3px] border-terracota relative mb-10">
+          {HERO_SLIDESHOW_PHOTOS.map((photo, idx) => (
+            <Image
+              key={photo}
+              src={photo}
+              alt={`Foto da Casa da Mata ${idx + 1}`}
+              width={900}
+              height={600}
+              className={`absolute h-full w-full object-cover transition-opacity duration-700 ${
+                idx === currentPhoto ? 'opacity-100' : 'opacity-0'
+              }`}
+              priority={idx === 0}
+            />
+          ))}
+        </div>
+
         <div className="flex flex-wrap gap-4 justify-center md:justify-start">
           <a
             href={property.airbnbUrl}
@@ -118,7 +116,7 @@ export function Hero() {
             Conhecer a casa
           </Link>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
