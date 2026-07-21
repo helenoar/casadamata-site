@@ -1,0 +1,197 @@
+<!--
+  ASSUMPTIONS (Junior Designer pass — huashu-design)
+  - Protótipo de DIREÇÃO VISUAL, não é o site final (será reconstruído em Next.js depois de aprovado).
+  - Paleta e tom já confirmados pelo cliente: oliva #819c5d, terracota #8a4b2f, off-whites #eee8dc/#f9efdc.
+  - Fonte real (ITC Avant Garde Gothic) só existe via Canva Pro (sem licença web) — usando Jost (Google Fonts)
+    como fallback geométrico, mesma família em pesos variados, já abstraído para facilitar troca futura.
+  - Sem logo próprio da Casa da Mata ainda: tratada como wordmark tipográfico, não ícone.
+  - Sem fotos em alta resolução ainda: placeholders honestos (bloco + legenda descritiva), nunca hotlink do Airbnb.
+  - Variação A = "Editorial Minimalista": muito respiro, tipografia grande carregando a página sozinha,
+    terracota como cor de texto/link principal, oliva reservada a acentos pequenos (badge, ícones, hover).
+  - Conteúdo (texto, números, avaliações) é fiel ao arquivo dados-cliente/airbnb-dados-completos.md.
+-->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Casa da Mata — Variação A · Editorial Minimalista</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --oliva: #819c5d;
+    --oliva-escuro: #66793f;
+    --terracota: #8a4b2f;
+    --terracota-escuro: #6e3b25;
+    --off-1: #eee8dc;
+    --off-2: #f9efdc;
+  }
+  * { font-family: 'Jost', sans-serif; }
+  body { background: var(--off-2); color: var(--terracota-escuro); }
+  .placeholder-photo {
+    background:
+      repeating-linear-gradient(135deg, rgba(138,75,47,0.08) 0px, rgba(138,75,47,0.08) 2px, transparent 2px, transparent 14px),
+      var(--off-1);
+    border: 1px solid rgba(138,75,47,0.25);
+  }
+  .placeholder-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--terracota);
+    opacity: 0.65;
+  }
+</style>
+</head>
+<body class="antialiased">
+
+  <!-- NAV -->
+  <header class="max-w-6xl mx-auto px-6 md:px-10 py-8 flex items-center justify-between">
+    <span class="text-xl tracking-[0.15em] uppercase font-medium" style="color: var(--terracota-escuro)">Casa da Mata</span>
+    <nav class="hidden md:flex items-center gap-8 text-sm tracking-wide" style="color: var(--terracota)">
+      <a href="#casa" class="hover:opacity-70">A Casa</a>
+      <a href="#anfitria" class="hover:opacity-70">Anfitriã</a>
+      <a href="#avaliacoes" class="hover:opacity-70">Avaliações</a>
+      <a href="#faq" class="hover:opacity-70">FAQ</a>
+    </nav>
+    <a href="#reservar" class="text-sm px-5 py-2.5 rounded-none border" style="border-color: var(--terracota); color: var(--terracota-escuro);">Reservar</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 pt-10 pb-24">
+    <div class="flex flex-wrap items-center gap-3 mb-8">
+      <span class="text-xs tracking-[0.12em] uppercase px-3 py-1 rounded-full" style="background: var(--oliva); color: var(--off-2);">★ 5,0 · 21 avaliações</span>
+      <span class="text-xs tracking-[0.12em] uppercase" style="color: var(--terracota);">Preferido dos hóspedes · Top 5%</span>
+    </div>
+
+    <h1 class="font-light leading-[0.95] mb-8" style="font-size: clamp(2.75rem, 7vw, 6rem); color: var(--terracota-escuro);">
+      Um refúgio<br />
+      <span class="font-semibold">na Mata Atlântica</span><br />
+      a 26 km de BH.
+    </h1>
+
+    <p class="max-w-xl text-lg leading-relaxed mb-10" style="color: var(--terracota);">
+      Casa contêiner elegante e arejada em meio a 1000 m² de mata, com riacho ao pé da casa, fogo de chão e redário. Condomínio Pasárgada, Nova Lima — Minas Gerais.
+    </p>
+
+    <div class="flex flex-wrap gap-4">
+      <a href="#reservar" class="px-8 py-4 text-sm tracking-wide uppercase" style="background: var(--terracota); color: var(--off-2);">Ver disponibilidade no Airbnb</a>
+      <a href="#casa" class="px-8 py-4 text-sm tracking-wide uppercase border" style="border-color: var(--terracota); color: var(--terracota-escuro);">Conhecer a casa</a>
+    </div>
+  </section>
+
+  <!-- FOTO PLACEHOLDER GRANDE -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 pb-24">
+    <div class="placeholder-photo w-full h-[420px] flex items-center justify-center">
+      <span class="placeholder-label text-center">Foto: exterior da Casa da Mata ao entardecer<br />(aguardando fotos em alta resolução da cliente)</span>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section id="casa" class="max-w-6xl mx-auto px-6 md:px-10 pb-28">
+    <p class="text-xs tracking-[0.2em] uppercase mb-4" style="color: var(--oliva-escuro);">Diferenciais</p>
+    <h2 class="font-light mb-16" style="font-size: clamp(1.75rem, 3.5vw, 2.75rem); color: var(--terracota-escuro);">
+      Feita para desacelerar.
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+      <div class="border-t pt-6" style="border-color: rgba(138,75,47,0.2);">
+        <h3 class="text-xl font-medium mb-2" style="color: var(--terracota-escuro);">Riacho ao pé da casa</h3>
+        <p class="leading-relaxed" style="color: var(--terracota);">O som da água acompanha a estadia do início ao fim — parte do nome do próprio refúgio.</p>
+      </div>
+      <div class="border-t pt-6" style="border-color: rgba(138,75,47,0.2);">
+        <h3 class="text-xl font-medium mb-2" style="color: var(--terracota-escuro);">Fogo de chão</h3>
+        <p class="leading-relaxed" style="color: var(--terracota);">Noites sob céu estrelado, no cenário que completa a experiência da mata.</p>
+      </div>
+      <div class="border-t pt-6" style="border-color: rgba(138,75,47,0.2);">
+        <h3 class="text-xl font-medium mb-2" style="color: var(--terracota-escuro);">1000 m² de Mata Atlântica</h3>
+        <p class="leading-relaxed" style="color: var(--terracota);">Quintal privado cercado por vegetação preservada, com redário e área de jantar externa.</p>
+      </div>
+      <div class="border-t pt-6" style="border-color: rgba(138,75,47,0.2);">
+        <h3 class="text-xl font-medium mb-2" style="color: var(--terracota-escuro);">Self check-in seguro</h3>
+        <p class="leading-relaxed" style="color: var(--terracota);">Cofre de chaves, condomínio fechado com portaria controlada e câmeras 24 horas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMODIDADES PREVIEW -->
+  <section class="px-6 md:px-10 py-24" style="background: var(--off-1);">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-xs tracking-[0.2em] uppercase mb-4" style="color: var(--oliva-escuro);">A casa por dentro</p>
+      <h2 class="font-light mb-12" style="font-size: clamp(1.75rem, 3.5vw, 2.75rem); color: var(--terracota-escuro);">
+        Tudo o que você precisa, nada além disso.
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-6 text-sm" style="color: var(--terracota-escuro);">
+        <span>Cozinha completa</span>
+        <span>Wi-Fi fibra óptica</span>
+        <span>Ar-condicionado</span>
+        <span>TV 65" 4K</span>
+        <span>Lençóis 1000 fios</span>
+        <span>Estacionamento gratuito</span>
+        <span>Espaço de trabalho</span>
+        <span>Chuveiro externo</span>
+      </div>
+      <a href="#" class="inline-block mt-10 text-sm tracking-wide uppercase" style="color: var(--terracota); border-bottom: 1px solid var(--terracota);">Ver as 47 comodidades →</a>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section id="avaliacoes" class="max-w-6xl mx-auto px-6 md:px-10 py-28">
+    <p class="text-xs tracking-[0.2em] uppercase mb-4" style="color: var(--oliva-escuro);">Quem já ficou</p>
+    <h2 class="font-light mb-16" style="font-size: clamp(1.75rem, 3.5vw, 2.75rem); color: var(--terracota-escuro);">
+      5,0 de 5 estrelas, em 21 avaliações.
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      <blockquote>
+        <p class="text-lg leading-relaxed mb-4" style="color: var(--terracota-escuro);">"Adorei a localização, lugar super tranquilo. Todo o espaço muito bem planejado, super aconchegante, organizado e equipado."</p>
+        <cite class="text-sm not-italic" style="color: var(--terracota);">— Lucélia B.</cite>
+      </blockquote>
+      <blockquote>
+        <p class="text-lg leading-relaxed mb-4" style="color: var(--terracota-escuro);">"A Casa da Mata é simplesmente encantadora. Cada detalhe revela o cuidado e o carinho na composição do espaço."</p>
+        <cite class="text-sm not-italic" style="color: var(--terracota);">— Maria Luiza</cite>
+      </blockquote>
+      <blockquote>
+        <p class="text-lg leading-relaxed mb-4" style="color: var(--terracota-escuro);">"O local em si me surpreendeu, pessoalmente é ainda melhor do que nas fotos. Muito organizado, seguro e ideal para descansar."</p>
+        <cite class="text-sm not-italic" style="color: var(--terracota);">— Luís O.</cite>
+      </blockquote>
+    </div>
+    <a href="#" class="inline-block mt-14 text-sm tracking-wide uppercase" style="color: var(--terracota); border-bottom: 1px solid var(--terracota);">Ver todas as 21 avaliações no Airbnb →</a>
+  </section>
+
+  <!-- ANFITRIÃ -->
+  <section id="anfitria" class="px-6 md:px-10 py-28" style="background: var(--terracota-escuro);">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <div class="placeholder-photo w-full h-[360px] flex items-center justify-center" style="background: rgba(249,239,220,0.06); border-color: rgba(249,239,220,0.25);">
+        <span class="placeholder-label text-center" style="color: var(--off-2); opacity: 0.6;">Foto: Letícia Carneiro<br />(retrato a confirmar com a cliente)</span>
+      </div>
+      <div>
+        <p class="text-xs tracking-[0.2em] uppercase mb-4" style="color: var(--off-1); opacity: 0.7;">Sua anfitriã</p>
+        <h2 class="font-light mb-6" style="font-size: clamp(1.75rem, 3vw, 2.5rem); color: var(--off-2);">Letícia Carneiro</h2>
+        <p class="leading-relaxed mb-6" style="color: var(--off-1); opacity: 0.9;">
+          Bailarina, formada em Artes Visuais, apaixonada por natureza e pelas pequenas belezas do cotidiano. Superhost, com taxa de resposta de 100% em até 1 hora.
+        </p>
+        <span class="text-xs tracking-[0.15em] uppercase px-4 py-2 border" style="border-color: var(--off-1); color: var(--off-1);">Superhost · hospeda há 5 meses</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="reservar" class="max-w-6xl mx-auto px-6 md:px-10 py-28 text-center">
+    <h2 class="font-light mb-8" style="font-size: clamp(2rem, 4vw, 3rem); color: var(--terracota-escuro);">
+      O tempo desacelera aqui.
+    </h2>
+    <a href="https://www.airbnb.com.br/h/casadamata45" target="_blank" rel="noopener" class="inline-block px-10 py-5 text-sm tracking-wide uppercase" style="background: var(--terracota); color: var(--off-2);">
+      Reservar no Airbnb
+    </a>
+  </section>
+
+  <footer class="px-6 md:px-10 py-10 text-center text-xs" style="color: var(--terracota); opacity: 0.6;">
+    Casa da Mata · Condomínio Pasárgada, Nova Lima — MG
+  </footer>
+
+</body>
+</html>

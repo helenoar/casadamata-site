@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# next.js
+.next/
+out/
+build/
+dist/
+
+# env
+.env*.local
+.env
+
+# misc
+.DS_Store
+*.pem
+
+# vercel
+.vercel
+
+# material bruto do cliente (originais grandes, não vão pro repo — só as versões
+# otimizadas dentro de public/ e _design-exploration/assets entram no git)
+"Midias /"
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*

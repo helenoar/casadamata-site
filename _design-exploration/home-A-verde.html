@@ -1,0 +1,344 @@
+<!--
+  ASSUMPTIONS v6 (últimos ajustes do Heleno)
+  - Todos os CTAs "Reservar" (nav, hero e final) agora apontam direto pro Airbnb
+    (https://www.airbnb.com.br/h/casadamata45, target=_blank) — antes o da nav e o do hero só rolavam a
+    página até a seção de CTA em vez de sair para o Airbnb.
+  - Margens horizontais unificadas: 3 seções (comodidades, anfitriã, footer) ainda usavam `px-6 md:px-10`
+    de uma versão antiga, enquanto o resto já tinha virado `px-6 md:px-16 lg:px-24` na mudança pra largura
+    total. Agora todas as seções usam o mesmo padding responsivo.
+  - 5 estrelas acima de cada depoimento: SVG sólido fino (não emoji ★), na mesma cor do corpo de texto
+    (verde-escuro) — todas as 21 avaliações do Airbnb são 5 estrelas, então é fiel mostrar 5/5 fixo.
+  - Foto real da anfitriã (Letícia) recebida do Heleno (`Midias /Anfitriã.jpeg.avif`, convertida para JPG)
+    substitui o placeholder — era o único placeholder de foto que restava na página.
+
+  ASSUMPTIONS v5 (Heleno salvou o material real na pasta do projeto)
+  - Logo real encontrado em `Midias /LOGO.png` (não mais o placeholder tracejado) e 30 fotos profissionais
+    da propriedade em `Midias /FOTOS/`. Copiei versões redimensionadas para uso web em `assets/` (logo em
+    500px, fotos em 900-1600px, JPEG comprimido pelo `sips`) — os originais (4288-4800px, 4-9MB cada) ficam
+    intocados na pasta Midias, só as cópias otimizadas entraram no protótipo.
+  - Logo: o PNG tem bastante margem branca ao redor do emblema circular (é um export de guia de marca, com
+    retângulo tracejado de área de segurança). Em vez de recortar o arquivo, a imagem é exibida com
+    `object-fit: cover` + leve `scale()` dentro de um container circular com `overflow: hidden` — isso
+    enquadra só o emblema, sem precisar editar o PNG original.
+  - Escolhi fotos reais que já batem com os "diferenciais" que o texto descreve, em vez de vagamente
+    escolher qualquer imagem: rede+taças de vinho (ILA_1560) como hero grande — bate com "romântico" das
+    avaliações —, chuveiro externo e jantar externo como pares do hero, e cozinha/interior/exterior/jardim
+    na faixa de galeria. Isso é fidelidade ao material real, não decoração aleatória.
+  - Foto da anfitriã (seção Letícia) continua placeholder — nenhuma das 30 fotos recebidas é um retrato
+    dela, então mantenho honesto até a cliente enviar uma foto de perfil.
+
+  ASSUMPTIONS v4 (correção sobre a v3 — feedback do Heleno)
+  - Heleno NÃO gostou de letras/números trocando de cor no meio do texto corrido (ex: "1000 m²" ou "5,0"
+    ficando marrom dentro de uma frase/título verde). Pediu especificamente "detalhes de LINHA" — bordas,
+    divisores, sublinhados, hairlines — não cor de texto alternando. Revertido em todo o arquivo:
+    - Estrela do pill, números no parágrafo do hero, "1000 m²" no heading do diferencial, "5,0"/"21" no
+      heading de avaliações → tudo de volta a --verde-escuro uniforme.
+    - Aspa decorativa (") antes de cada depoimento → virou um traço/linha vertical fina em terracota
+      (detalhe de linha), não mais um caractere colorido.
+    - Nome de quem avaliou (cite) → texto neutro verde, com uma linha fina terracota acima como separador.
+    Mantido como estava (não são "palavras trocando de cor", são elementos próprios): eyebrows em maiúsculas
+    pequenas (rótulo isolado, não frase), links de CTA "ver mais →" (padrão de link, não prosa), marcador
+    quadrado ao lado dos diferenciais (é um bullet/ícone, não letra), badge circular "45" (elemento de
+    marca à parte), faixa de marca no topo (linha pura).
+  - Reforçado o pedido de "mais marrom, mas em linha": hairline terracota sob o header, hairline terracota
+    no topo de cada foto-placeholder, faixa espelhada no rodapé, divisores dos diferenciais mais visíveis.
+
+  ASSUMPTIONS v3 (histórico — parcialmente revertido acima, ver v4)
+  - "Sensação chapada": adicionar mais terracota em detalhes pontuais SEM tirar o verde do papel de cor
+    dominante — faixa de marca no topo (5px), números-chave em terracota dentro do texto corrido
+    (26 km, 1000 m², 5,0, 21), aspas decorativas grandes nos depoimentos, marcador quadrado ao lado
+    de cada diferencial. Nenhum desses é heading/corpo de texto — continuam "detalhe", não cor central.
+  - Nome "CASA DA MATA 45" precisa ser lembrado: wordmark do header aumentado (era text-xl, virou
+    text-3xl/4xl) e o "45" ganhou uma placa circular em terracota ao lado — dobra como reforço de marca
+    (o "45" é literalmente o número da casa no condomínio) e como o maior uso de terracota da página,
+    mas ainda pontual (um elemento, não um bloco de fundo).
+  - LOGO REAL recebido do Heleno (imagem colada no chat: emblema circular bege com casa/árvore em linha
+    verde+marrom, "CASA DA MATA" em marrom embaixo, dois traços com folha). Ainda não tenho o arquivo em
+    disco (imagem colada inline não vira arquivo acessível por mim) — reservado um slot de logo no header
+    com placeholder honesto no formato/proporção certa, à espera do arquivo real em
+    `_design-exploration/assets/logo-casa-da-mata.png` (ou .svg/.webp).
+
+  ASSUMPTIONS (iteração sobre a Variação A, aprovada pelo Heleno como direção-base)
+  - Mesmo layout/composição editorial da Variação A. Mudança pedida: VERDE (oliva) vira cor central/dominante
+    de texto e destaque; MARROM (terracota) vira só detalhe pontual (rótulos pequenos, sublinhado de link,
+    nome de quem avaliou, divisor fino) — nunca mais o texto/heading principal.
+  - Contraste recalculado (WCAG, luminância relativa sRGB) porque o oliva de marca (#819c5d) sozinho NÃO
+    passa em texto pequeno sobre os off-whites (~2,5:1). Solução: dois tons de verde —
+      --verde-escuro (#4d5c30) para headings/corpo de texto/botões primários → ~6:1 a ~7,3:1, seguro.
+      --verde-medio  (#819c5d, o verde de marca original) reservado para blocos de fundo grandes/badges
+        onde o texto é grande/negrito (~3:1, ok para UI/large text, não para parágrafo).
+  - Terracota (#8a4b2f) mantém ~5,5:1 sobre os off-whites (seguro), mas SÓ aparece em elementos pequenos:
+    "Preferido dos hóspedes", divisores finos, nome nas citações, links "ver mais →", rótulo eyebrow.
+    Terracota NUNCA aparece sobre o fundo verde-escuro da seção da anfitriã (contraste calculado ~1,08:1,
+    ilegível) — nessa seção os detalhes continuam neutros (off-white).
+-->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Casa da Mata — Variação A · Verde Dominante</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --verde-escuro: #4d5c30;   /* headings, corpo, botão primário — dominante agora */
+    --verde-medio: #819c5d;    /* verde de marca, blocos/badges grandes */
+    --terracota: #8a4b2f;      /* só detalhe pontual */
+    --off-1: #eee8dc;
+    --off-2: #f9efdc;
+  }
+  * { font-family: 'Jost', sans-serif; }
+  body { background: var(--off-2); color: var(--verde-escuro); }
+  .placeholder-photo {
+    background:
+      repeating-linear-gradient(135deg, rgba(77,92,48,0.08) 0px, rgba(77,92,48,0.08) 2px, transparent 2px, transparent 14px),
+      var(--off-1);
+    border: 1px solid rgba(77,92,48,0.25);
+  }
+  .placeholder-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--verde-escuro);
+    opacity: 0.55;
+  }
+  /* hairline terracota no topo de cada foto — detalhe de linha, não de cor de texto */
+  .placeholder-photo { border-top: 3px solid var(--terracota); }
+  .logo-placeholder {
+    border: 1px dashed rgba(138,75,47,0.5);
+    background: var(--off-1);
+  }
+  .real-photo { object-fit: cover; width: 100%; height: 100%; display: block; }
+  /* 5 estrelas editoriais: SVG fino sólido, não emoji — mesma cor do corpo de texto */
+  .star-row { display: flex; gap: 5px; margin-bottom: 0.85rem; }
+  .star-icon { width: 13px; height: 13px; fill: var(--verde-escuro); }
+  /* o PNG do logo tem margem branca — cover + scale recorta só o emblema circular */
+  .logo-real { object-fit: cover; width: 145%; height: 145%; }
+</style>
+</head>
+<body class="antialiased">
+
+  <!-- FAIXA DE MARCA — detalhe terracota no topo, primeira coisa que o olho vê -->
+  <div style="height: 5px; background: var(--terracota);"></div>
+
+  <!-- NAV — hairline terracota embaixo (detalhe de linha, não de texto) -->
+  <header class="w-full px-6 md:px-16 lg:px-24 py-6 flex items-center justify-between flex-wrap gap-4 border-b" style="border-color: rgba(138,75,47,0.3);">
+    <!-- logo real da cliente (Midias /LOGO.png), recortado via CSS pra descartar a margem branca do export -->
+    <div class="flex items-center gap-3">
+      <div class="w-14 h-14 md:w-16 md:h-16 rounded-full shrink-0 overflow-hidden flex items-center justify-center" style="background: var(--off-1);">
+        <img src="assets/logo-casa-da-mata.png" alt="Logo Casa da Mata" class="logo-real" />
+      </div>
+      <span class="text-2xl md:text-3xl tracking-[0.01em] font-semibold leading-none" style="color: var(--verde-escuro)">CASA DA MATA</span>
+      <!-- "45" continua como placa à parte: não está no logo, e o Heleno pediu destaque pro número da casa -->
+      <span class="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full text-sm font-bold shrink-0" style="background: var(--terracota); color: var(--off-2);">45</span>
+    </div>
+    <nav class="hidden md:flex items-center gap-8 text-sm tracking-wide" style="color: var(--verde-escuro)">
+      <a href="#casa" class="hover:opacity-70">A Casa</a>
+      <a href="#anfitria" class="hover:opacity-70">Anfitriã</a>
+      <a href="#avaliacoes" class="hover:opacity-70">Avaliações</a>
+      <a href="#faq" class="hover:opacity-70">FAQ</a>
+    </nav>
+    <!-- Reservar vai direto pro Airbnb, igual os outros CTAs -->
+    <a href="https://www.airbnb.com.br/h/casadamata45" target="_blank" rel="noopener" class="text-sm px-5 py-2.5 rounded-none border" style="border-color: var(--verde-escuro); color: var(--verde-escuro);">Reservar</a>
+  </header>
+
+  <!-- HERO -->
+  <!-- ajuste pedido pelo Heleno: fotos precisam aparecer já na dobra, não só depois do texto -->
+  <section class="w-full px-6 md:px-16 lg:px-24 pt-10 pb-16 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <div class="flex flex-wrap items-center gap-3 mb-8">
+        <!-- revertido: estrela e texto no mesmo verde, sem alternância de cor -->
+        <span class="text-xs tracking-[0.12em] uppercase px-3 py-1 rounded-full border" style="border-color: var(--verde-escuro); color: var(--verde-escuro);">★ 5,0 · 21 avaliações</span>
+        <!-- detalhe: único uso de terracota no hero, texto pequeno -->
+        <span class="text-xs tracking-[0.12em] uppercase" style="color: var(--terracota);">Preferido dos hóspedes · Top 5%</span>
+      </div>
+
+      <h1 class="font-light leading-[0.95] mb-8" style="font-size: clamp(2.5rem, 5.5vw, 4.5rem); color: var(--verde-escuro);">
+        Um refúgio<br />
+        <span class="font-semibold">na Mata Atlântica</span><br />
+        a 26 km de BH.
+      </h1>
+
+      <!-- revertido: sem troca de cor no meio da frase, verde uniforme -->
+      <p class="max-w-xl text-lg leading-relaxed mb-10" style="color: var(--verde-escuro);">
+        Casa contêiner elegante e arejada em meio a 1000 m² de mata, com riacho ao pé da casa, fogo de chão e redário. Condomínio Pasárgada, Nova Lima — a 26 km de BH.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="https://www.airbnb.com.br/h/casadamata45" target="_blank" rel="noopener" class="px-8 py-4 text-sm tracking-wide uppercase" style="background: var(--verde-escuro); color: var(--off-2);">Ver disponibilidade no Airbnb</a>
+        <a href="#casa" class="px-8 py-4 text-sm tracking-wide uppercase border" style="border-color: var(--verde-escuro); color: var(--verde-escuro);">Conhecer a casa</a>
+      </div>
+    </div>
+
+    <!-- colagem de fotos no hero: foto real da rede+vinho (bate com "romântico" das avaliações) + 2 pequenas -->
+    <div class="grid grid-cols-2 gap-3 h-[460px]">
+      <div class="placeholder-photo col-span-2 h-[260px] overflow-hidden">
+        <img src="assets/fotos/hero-rede-vinho.jpg" alt="Rede com taças de vinho na varanda da Casa da Mata, em meio à Mata Atlântica" class="real-photo" />
+      </div>
+      <div class="placeholder-photo h-[184px] overflow-hidden">
+        <img src="assets/fotos/chuveiro-externo.jpg" alt="Chuveiro externo de madeira da Casa da Mata" class="real-photo" />
+      </div>
+      <div class="placeholder-photo h-[184px] overflow-hidden">
+        <img src="assets/fotos/jantar-externo.jpg" alt="Mesa de jantar externa da Casa da Mata em meio ao jardim" class="real-photo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAIXA DE GALERIA — fotos reais da propriedade, mais fotos logo de cara -->
+  <section class="w-full px-6 md:px-16 lg:px-24 pb-24">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div class="placeholder-photo h-[220px] overflow-hidden">
+        <img src="assets/fotos/cozinha-varanda-noite.jpg" alt="Cozinha e varanda da Casa da Mata iluminadas à noite" class="real-photo" />
+      </div>
+      <div class="placeholder-photo h-[220px] overflow-hidden">
+        <img src="assets/fotos/interior-quarto-closet.jpg" alt="Interior da Casa da Mata: quarto, closet e cozinha integrados" class="real-photo" />
+      </div>
+      <div class="placeholder-photo h-[220px] overflow-hidden">
+        <img src="assets/fotos/exterior-container-jardim.jpg" alt="Casa contêiner verde da Casa da Mata cercada por Mata Atlântica" class="real-photo" />
+      </div>
+      <div class="placeholder-photo h-[220px] overflow-hidden">
+        <img src="assets/fotos/exterior-deck-rede.jpg" alt="Deck externo e varanda com rede da Casa da Mata ao entardecer" class="real-photo" />
+      </div>
+    </div>
+    <a href="#" class="inline-block mt-6 text-sm tracking-wide uppercase" style="color: var(--terracota); border-bottom: 1px solid var(--terracota);">Ver todas as fotos →</a>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section id="casa" class="w-full px-6 md:px-16 lg:px-24 pb-28">
+    <!-- detalhe: eyebrow em terracota -->
+    <p class="text-xs tracking-[0.2em] uppercase mb-4" style="color: var(--terracota);">Diferenciais</p>
+    <h2 class="font-light mb-16" style="font-size: clamp(1.75rem, 3.5vw, 2.75rem); color: var(--verde-escuro);">
+      Feita para desacelerar.
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+      <!-- detalhe: divisor fino + marcador quadrado em terracota antes de cada título -->
+      <div class="border-t pt-6" style="border-color: rgba(138,75,47,0.35);">
+        <h3 class="text-xl font-medium mb-2 flex items-center gap-2" style="color: var(--verde-escuro);"><span style="display:inline-block;width:8px;height:8px;background:var(--terracota);"></span>Riacho ao pé da casa</h3>
+        <p class="leading-relaxed" style="color: var(--verde-escuro);">O som da água acompanha a estadia do início ao fim — parte do nome do próprio refúgio.</p>
+      </div>
+      <div class="border-t pt-6" style="border-color: rgba(138,75,47,0.35);">
+        <h3 class="text-xl font-medium mb-2 flex items-center gap-2" style="color: var(--verde-escuro);"><span style="display:inline-block;width:8px;height:8px;background:var(--terracota);"></span>Fogo de chão</h3>
+        <p class="leading-relaxed" style="color: var(--verde-escuro);">Noites sob céu estrelado, no cenário que completa a experiência da mata.</p>
+      </div>
+      <div class="border-t pt-6" style="border-color: rgba(138,75,47,0.35);">
+        <h3 class="text-xl font-medium mb-2 flex items-center gap-2" style="color: var(--verde-escuro);"><span style="display:inline-block;width:8px;height:8px;background:var(--terracota);"></span>1000 m² de Mata Atlântica</h3>
+        <p class="leading-relaxed" style="color: var(--verde-escuro);">Quintal privado cercado por vegetação preservada, com redário e área de jantar externa.</p>
+      </div>
+      <div class="border-t pt-6" style="border-color: rgba(138,75,47,0.35);">
+        <h3 class="text-xl font-medium mb-2 flex items-center gap-2" style="color: var(--verde-escuro);"><span style="display:inline-block;width:8px;height:8px;background:var(--terracota);"></span>Self check-in seguro</h3>
+        <p class="leading-relaxed" style="color: var(--verde-escuro);">Cofre de chaves, condomínio fechado com portaria controlada e câmeras 24 horas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMODIDADES PREVIEW -->
+  <section class="w-full px-6 md:px-16 lg:px-24 py-24" style="background: var(--off-1);">
+    <div class="w-full">
+      <p class="text-xs tracking-[0.2em] uppercase mb-4" style="color: var(--terracota);">A casa por dentro</p>
+      <h2 class="font-light mb-12" style="font-size: clamp(1.75rem, 3.5vw, 2.75rem); color: var(--verde-escuro);">
+        Tudo o que você precisa, nada além disso.
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-6 text-sm" style="color: var(--verde-escuro);">
+        <span>Cozinha completa</span>
+        <span>Wi-Fi fibra óptica</span>
+        <span>Ar-condicionado</span>
+        <span>TV 65" 4K</span>
+        <span>Lençóis 1000 fios</span>
+        <span>Estacionamento gratuito</span>
+        <span>Espaço de trabalho</span>
+        <span>Chuveiro externo</span>
+      </div>
+      <!-- detalhe: link de "ver mais" em terracota -->
+      <a href="#" class="inline-block mt-10 text-sm tracking-wide uppercase" style="color: var(--terracota); border-bottom: 1px solid var(--terracota);">Ver as 47 comodidades →</a>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section id="avaliacoes" class="w-full px-6 md:px-16 lg:px-24 py-28">
+    <p class="text-xs tracking-[0.2em] uppercase mb-4" style="color: var(--terracota);">Quem já ficou</p>
+    <h2 class="font-light mb-16" style="font-size: clamp(1.75rem, 3.5vw, 2.75rem); color: var(--verde-escuro);">
+      5,0 de 5 estrelas, em 21 avaliações.
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      <!-- 5 estrelas editoriais (SVG fino, não emoji) + linha vertical fina em terracota, sem nome/aspa coloridos -->
+      <blockquote class="pl-5" style="border-left: 2px solid var(--terracota);">
+        <div class="star-row" aria-label="Avaliação 5 de 5 estrelas">
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+        </div>
+        <p class="text-lg leading-relaxed mb-4" style="color: var(--verde-escuro);">Adorei a localização, lugar super tranquilo. Todo o espaço muito bem planejado, super aconchegante, organizado e equipado.</p>
+        <cite class="text-sm not-italic" style="color: var(--verde-escuro); opacity: 0.75;">Lucélia B.</cite>
+      </blockquote>
+      <blockquote class="pl-5" style="border-left: 2px solid var(--terracota);">
+        <div class="star-row" aria-label="Avaliação 5 de 5 estrelas">
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+        </div>
+        <p class="text-lg leading-relaxed mb-4" style="color: var(--verde-escuro);">A Casa da Mata é simplesmente encantadora. Cada detalhe revela o cuidado e o carinho na composição do espaço.</p>
+        <cite class="text-sm not-italic" style="color: var(--verde-escuro); opacity: 0.75;">Maria Luiza</cite>
+      </blockquote>
+      <blockquote class="pl-5" style="border-left: 2px solid var(--terracota);">
+        <div class="star-row" aria-label="Avaliação 5 de 5 estrelas">
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+          <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2.5l2.77 6.16 6.73.68-5.06 4.6 1.45 6.66L12 17.06l-5.89 3.54 1.45-6.66-5.06-4.6 6.73-.68L12 2.5z"/></svg>
+        </div>
+        <p class="text-lg leading-relaxed mb-4" style="color: var(--verde-escuro);">O local em si me surpreendeu, pessoalmente é ainda melhor do que nas fotos. Muito organizado, seguro e ideal para descansar.</p>
+        <cite class="text-sm not-italic" style="color: var(--verde-escuro); opacity: 0.75;">Luís O.</cite>
+      </blockquote>
+    </div>
+    <a href="#" class="inline-block mt-14 text-sm tracking-wide uppercase" style="color: var(--terracota); border-bottom: 1px solid var(--terracota);">Ver todas as 21 avaliações no Airbnb →</a>
+  </section>
+
+  <!-- ANFITRIÃ (seção escura: agora verde-escuro, não mais marrom) -->
+  <section id="anfitria" class="w-full px-6 md:px-16 lg:px-24 py-28" style="background: var(--verde-escuro);">
+    <!-- coluna da foto com largura FIXA (não 1fr/50%) — antes a coluna ficava larga com a foto pequena boiando
+         dentro, criando um vão vazio enorme até o texto. Agora a coluna acompanha o tamanho real da foto. -->
+    <div class="w-full grid md:grid-cols-[340px_1fr] gap-10 md:gap-16 items-center">
+      <!-- foto real da anfitriã: moldura vertical (retrato), não mais uma faixa larga que cortava o rosto -->
+      <div class="w-full max-w-xs md:max-w-none mx-auto md:mx-0 aspect-[3/4] overflow-hidden" style="border-top: 3px solid var(--terracota);">
+        <img src="assets/fotos/anfitria-leticia.jpg" alt="Letícia Carneiro, anfitriã da Casa da Mata" class="real-photo" />
+      </div>
+      <div>
+        <!-- nota: nesta seção o detalhe fica neutro (off-white), terracota não passa no contraste sobre verde-escuro -->
+        <p class="text-xs tracking-[0.2em] uppercase mb-4" style="color: var(--off-1); opacity: 0.7;">Sua anfitriã</p>
+        <h2 class="font-light mb-6" style="font-size: clamp(1.75rem, 3vw, 2.5rem); color: var(--off-2);">Letícia Carneiro</h2>
+        <p class="leading-relaxed mb-6" style="color: var(--off-1); opacity: 0.9;">
+          Bailarina, formada em Artes Visuais, apaixonada por natureza e pelas pequenas belezas do cotidiano. Superhost, com taxa de resposta de 100% em até 1 hora.
+        </p>
+        <span class="text-xs tracking-[0.15em] uppercase px-4 py-2 border" style="border-color: var(--off-1); color: var(--off-1);">Superhost · hospeda há 5 meses</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="reservar" class="w-full px-6 md:px-16 lg:px-24 py-28 text-center">
+    <h2 class="font-light mb-8" style="font-size: clamp(2rem, 4vw, 3rem); color: var(--verde-escuro);">
+      O tempo desacelera aqui.
+    </h2>
+    <a href="https://www.airbnb.com.br/h/casadamata45" target="_blank" rel="noopener" class="inline-block px-10 py-5 text-sm tracking-wide uppercase" style="background: var(--verde-escuro); color: var(--off-2);">
+      Reservar no Airbnb
+    </a>
+  </section>
+
+  <!-- faixa espelhando a do topo — simetria de linha -->
+  <div style="height: 5px; background: var(--terracota);"></div>
+  <footer class="w-full px-6 md:px-16 lg:px-24 py-10 text-center text-xs" style="color: var(--verde-escuro); opacity: 0.6;">
+    Casa da Mata · Condomínio Pasárgada, Nova Lima — MG
+  </footer>
+
+</body>
+</html>
