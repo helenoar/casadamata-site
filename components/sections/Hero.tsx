@@ -1,10 +1,31 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import Link from "next/link";
 
 import { property } from "@/content/data/property";
 import { locationFacts } from "@/content/data/location-facts";
 
+const HERO_SLIDESHOW_PHOTOS = [
+  '/images/hero-rede-vinho.jpg',
+  '/images/chuveiro-externo.jpg',
+  '/images/jantar-externo.jpg',
+  '/images/cozinha-varanda-noite.jpg',
+  '/images/exterior-container-jardim.jpg',
+  '/images/exterior-deck-rede.jpg',
+];
+
 export function Hero() {
+  const [currentPhoto, setCurrentPhoto] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPhoto((prev) => (prev === HERO_SLIDESHOW_PHOTOS.length - 1 ? 0 : prev + 1));
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   const guestFavoriteBadge = property.badges.find(
     (badge) => badge.label === "Preferido dos hóspedes",
   );
@@ -61,35 +82,20 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="grid h-[460px] grid-cols-2 gap-3">
-        <div className="group col-span-2 h-[260px] overflow-hidden border-t-[3px] border-terracota">
+      <div className="h-[460px] overflow-hidden border-t-[3px] border-terracota relative">
+        {HERO_SLIDESHOW_PHOTOS.map((photo, idx) => (
           <Image
-            src="/images/hero-rede-vinho.jpg"
-            alt="Rede com taças de vinho na varanda da Casa da Mata, em meio à Mata Atlântica"
+            key={photo}
+            src={photo}
+            alt={`Foto da Casa da Mata ${idx + 1}`}
             width={900}
             height={600}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
-            priority
+            className={`absolute h-full w-full object-cover transition-opacity duration-700 ${
+              idx === currentPhoto ? 'opacity-100' : 'opacity-0'
+            }`}
+            priority={idx === 0}
           />
-        </div>
-        <div className="group h-[184px] overflow-hidden border-t-[3px] border-terracota">
-          <Image
-            src="/images/chuveiro-externo.jpg"
-            alt="Chuveiro externo de madeira da Casa da Mata"
-            width={450}
-            height={450}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
-          />
-        </div>
-        <div className="group h-[184px] overflow-hidden border-t-[3px] border-terracota">
-          <Image
-            src="/images/jantar-externo.jpg"
-            alt="Mesa de jantar externa da Casa da Mata em meio ao jardim"
-            width={450}
-            height={450}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
-          />
-        </div>
+        ))}
       </div>
     </section>
   );

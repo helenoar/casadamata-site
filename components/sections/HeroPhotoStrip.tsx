@@ -12,31 +12,31 @@ export function HeroPhotoStrip() {
   return (
     <>
       <style>{`
-        @keyframes scroll-photos {
+        @keyframes slide-photos {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
         .photo-strip-track {
-          animation: scroll-photos 60s linear infinite;
+          animation: slide-photos 120s linear infinite;
         }
         .photo-strip-track:hover {
           animation-play-state: paused;
         }
       `}</style>
 
-      <section className="w-full overflow-hidden bg-off-1 py-0">
-        <div className="photo-strip-track flex h-[300px]" style={{ width: '200%' }}>
+      <section className="w-full overflow-hidden bg-off-1 py-6">
+        <div className="photo-strip-track flex h-[280px] gap-2" style={{ width: '200%' }}>
           {[...STRIP_PHOTOS, ...STRIP_PHOTOS].map((photo, idx) => (
             <div
               key={`${photo}-${idx}`}
               className="h-full flex-shrink-0"
-              style={{ width: `${100 / (STRIP_PHOTOS.length * 2)}%` }}
+              style={{ width: 'calc(20% - 0.25rem)', minWidth: 'calc(20% - 0.25rem)' }}
             >
               <Image
                 src={`/images/${photo}`}
-                alt={`Foto da Casa da Mata ${photo}`}
-                width={300}
-                height={300}
+                alt={`Foto da Casa da Mata`}
+                width={280}
+                height={280}
                 className="h-full w-full object-cover"
               />
             </div>
