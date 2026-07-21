@@ -30,12 +30,12 @@ export default function OQueFazerPage() {
         O que fazer
       </p>
       <h1
-        className="mb-6 max-w-3xl font-light leading-[1.05] text-oliva-escuro"
+        className="mb-6 font-light leading-[1.05] text-oliva-escuro"
         style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
       >
         O que fazer perto da Casa da Mata?
       </h1>
-      <p className="mb-14 max-w-2xl leading-relaxed text-oliva-escuro">
+      <p className="mb-14 leading-relaxed text-oliva-escuro">
         Guias sobre a região de Nova Lima e Macacos, MG — trilhas, bairros
         vizinhos e o contexto natural do entorno da Casa da Mata.
       </p>

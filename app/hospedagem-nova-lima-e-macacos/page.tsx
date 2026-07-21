@@ -54,8 +54,8 @@ export default async function HospedagemNovaLimaEMacacosPage() {
             {frontmatter.title}
           </h1>
 
-          <FactList facts={distanceFacts} className="mb-6 max-w-xl" />
-          <FactList facts={biomeFacts} className="max-w-xl" />
+          <FactList facts={distanceFacts} className="mb-6" />
+          <FactList facts={biomeFacts} />
         </div>
 
         <div className="h-[360px] overflow-hidden border-t-[3px] border-terracota md:h-[460px] shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 will-change-transform">
@@ -71,7 +71,7 @@ export default async function HospedagemNovaLimaEMacacosPage() {
       </section>
 
       <section className="w-full bg-off-1 px-6 py-16 md:px-16 lg:px-24">
-        <div className="max-w-3xl">{content}</div>
+        <div>{content}</div>
 
         <div className="mt-14 flex flex-wrap gap-4">
           <a

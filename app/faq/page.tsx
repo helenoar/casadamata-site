@@ -35,7 +35,7 @@ export default function FaqPage() {
         O que você precisa saber antes de reservar a Casa da Mata?
       </h1>
 
-      <div className="max-w-4xl">
+      <div>
         <Accordion items={faq} />
       </div>
     </main>

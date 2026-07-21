@@ -59,7 +59,7 @@ export default function AvaliacoesPage() {
         O que os hóspedes dizem sobre a Casa da Mata?
       </h1>
 
-      <FactList facts={summaryFacts} className="mb-10 max-w-2xl" />
+      <FactList facts={summaryFacts} className="mb-10" />
 
       <div className="mb-16 flex flex-wrap gap-x-3 gap-y-2 text-sm text-oliva-escuro">
         <span className="text-xs tracking-[0.15em] text-terracota uppercase">
