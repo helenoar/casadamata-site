@@ -28,3 +28,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+
+# scratch de acompanhamento do subagent-driven-development (não versionado)
+.superpowers/
