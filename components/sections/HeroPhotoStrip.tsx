@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const STRIP_PHOTOS = [
   '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg',
@@ -24,24 +25,32 @@ export function HeroPhotoStrip() {
         }
       `}</style>
 
-      <section className="w-full overflow-hidden bg-off-1 py-6 px-6 md:px-16 lg:px-24">
-        <div className="photo-strip-track flex h-[200px] gap-4" style={{ width: '200%' }}>
-          {[...STRIP_PHOTOS, ...STRIP_PHOTOS].map((photo, idx) => (
-            <div
-              key={`${photo}-${idx}`}
-              className="h-full flex-shrink-0 rounded-sm overflow-hidden"
-              style={{ width: '320px', minWidth: '320px' }}
-            >
-              <Image
-                src={`/images/${photo}`}
-                alt={`Foto da Casa da Mata`}
-                width={320}
-                height={200}
-                className="h-full w-full object-cover"
-              />
-            </div>
-          ))}
+      <section className="w-full bg-off-1 px-6 py-8 md:px-16 lg:px-24">
+        <div className="overflow-hidden mb-6">
+          <div className="photo-strip-track flex h-[200px] gap-4" style={{ width: '200%' }}>
+            {[...STRIP_PHOTOS, ...STRIP_PHOTOS].map((photo, idx) => (
+              <div
+                key={`${photo}-${idx}`}
+                className="h-full flex-shrink-0 rounded-sm overflow-hidden"
+                style={{ width: '320px', minWidth: '320px' }}
+              >
+                <Image
+                  src={`/images/${photo}`}
+                  alt={`Foto da Casa da Mata`}
+                  width={320}
+                  height={200}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
         </div>
+        <Link
+          href="/a-casa"
+          className="inline-block border-b border-terracota text-sm tracking-wide text-terracota uppercase"
+        >
+          Ver todas as fotos →
+        </Link>
       </section>
     </>
   );
