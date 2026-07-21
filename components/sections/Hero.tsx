@@ -35,19 +35,6 @@ export function Hero() {
   return (
     <section className="grid w-full items-center gap-10 px-6 pt-10 pb-16 md:grid-cols-2 md:px-16 lg:px-24">
       <div>
-        <div className="mb-10 flex items-center justify-center md:justify-start">
-          <div className="h-32 w-32 md:h-40 md:w-40 shrink-0 overflow-hidden rounded-full bg-off-1 flex items-center justify-center">
-            <Image
-              src="/logo-casa-da-mata.png"
-              alt="Logo Casa da Mata"
-              width={200}
-              height={200}
-              className="h-[145%] w-[145%] object-cover"
-              priority
-            />
-          </div>
-        </div>
-
         <div className="mb-8 flex flex-wrap items-center justify-center gap-3 md:justify-start">
           <span className="rounded-full border border-oliva-escuro px-3 py-1 text-xs tracking-[0.12em] text-oliva-escuro uppercase">
             ★ {property.reputation.overallRating.toFixed(1).replace(".", ",")}{" "}
@@ -60,19 +47,18 @@ export function Hero() {
           ) : null}
         </div>
 
-        <div className="mb-8 text-center md:text-left">
-          <div className="text-oliva-escuro/60 text-sm tracking-widest uppercase mb-2">
-            Casa da Mata
-          </div>
-          <h1
-            className="font-light leading-[0.95] text-oliva-escuro"
-            style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
-          >
-            Um refúgio
-            <br />
-            <span className="font-semibold">na Mata Atlântica</span>
-            <br />a {distanceToBh.km} km de BH.
-          </h1>
+        <h1
+          className="mb-10 font-light leading-[0.95] text-oliva-escuro"
+          style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
+        >
+          Um refúgio
+          <br />
+          <span className="font-semibold">na Mata Atlântica</span>
+          <br />a {distanceToBh.km} km de BH.
+        </h1>
+
+        <div className="mb-10 text-oliva-escuro/70 text-sm tracking-widest uppercase">
+          Casa da Mata · 45
         </div>
 
         <p className="mb-10 max-w-xl text-lg leading-relaxed text-oliva-escuro text-center md:text-left">
