@@ -6,12 +6,12 @@ export function HostSection() {
   return (
     <section
       id="anfitria"
-      className="w-full bg-oliva-escuro px-6 py-20 md:py-32 lg:py-40 md:px-16 lg:px-24"
+      className="w-full surface-gradient-dark px-6 py-20 md:py-32 lg:py-40 md:px-16 lg:px-24"
     >
       {/* Coluna da foto com largura FIXA (~340px), não 50/50 — pedido explícito
           do cliente para a foto não boiar num vão vazio (ASSUMPTIONS v6/v4). */}
       <div className="grid w-full items-center gap-10 md:grid-cols-[340px_1fr] md:gap-16">
-        <div className="mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden border-t-[3px] border-terracota md:mx-0 md:max-w-none">
+        <div className="mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden border-t-[3px] border-terracota md:mx-0 md:max-w-none shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 will-change-transform">
           <Image
             src="/images/anfitria-leticia.jpg"
             alt={`${host.name}, anfitriã da Casa da Mata`}

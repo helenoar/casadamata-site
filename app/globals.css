@@ -9,6 +9,35 @@
 
   --font-heading: var(--font-jost);
   --font-body: var(--font-jost);
+
+  --shadow-soft: 0 1px 2px rgba(77, 92, 48, 0.05),
+                 0 6px 16px -4px rgba(77, 92, 48, 0.08);
+  --shadow-lifted: 0 4px 8px rgba(77, 92, 48, 0.08),
+                   0 24px 40px -12px rgba(77, 92, 48, 0.20);
+}
+
+@utility surface-gradient-light {
+  background-image: radial-gradient(
+    ellipse 140% 60% at 50% -10%,
+    var(--color-off-1) 0%,
+    var(--color-off-2) 65%
+  );
+}
+
+@utility surface-gradient-muted {
+  background-image: radial-gradient(
+    ellipse 140% 60% at 50% -10%,
+    var(--color-off-2) 0%,
+    var(--color-off-1) 65%
+  );
+}
+
+@utility surface-gradient-dark {
+  background-image: linear-gradient(
+    180deg,
+    var(--color-oliva-escuro) 0%,
+    color-mix(in srgb, var(--color-oliva-escuro) 80%, black) 100%
+  );
 }
 
 html,

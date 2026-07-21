@@ -4,6 +4,7 @@ import { property } from "@/content/data/property";
 import { reviews, reviewsSummary } from "@/content/data/reviews";
 import { StarRating } from "@/components/ui/StarRating";
 import { FactList } from "@/components/ui/FactList";
+import { Reveal } from "@/components/ui/Reveal";
 import { ReviewJsonLd } from "@/components/schema/ReviewJsonLd";
 import { BackToHomeHeader } from "@/components/layout/BackToHomeHeader";
 import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
@@ -52,13 +53,13 @@ export default function AvaliacoesPage() {
         Quem já ficou
       </p>
       <h1
-        className="mb-10 max-w-3xl font-light leading-[1.05] text-oliva-escuro"
+        className="mb-10 max-w-5xl font-light leading-[1.05] text-oliva-escuro"
         style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
       >
         O que os hóspedes dizem sobre a Casa da Mata?
       </h1>
 
-      <FactList facts={summaryFacts} className="mb-10 max-w-xl" />
+      <FactList facts={summaryFacts} className="mb-10 max-w-2xl" />
 
       <div className="mb-16 flex flex-wrap gap-x-3 gap-y-2 text-sm text-oliva-escuro">
         <span className="text-xs tracking-[0.15em] text-terracota uppercase">
@@ -81,11 +82,12 @@ export default function AvaliacoesPage() {
         Ver todas as avaliações no Airbnb →
       </a>
 
+      <Reveal>
       <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
         {reviews.map((review) => (
           <blockquote
             key={review.id}
-            className="border-l-2 border-terracota pl-5"
+            className="rounded-sm border-y border-r border-oliva-escuro/10 border-l-2 border-l-terracota bg-off-1/50 backdrop-blur-sm p-6 shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300"
           >
             <StarRating rating={review.rating} className="mb-[0.85rem]" />
             <p className="mb-4 leading-relaxed text-oliva-escuro">
@@ -100,6 +102,7 @@ export default function AvaliacoesPage() {
           </blockquote>
         ))}
       </div>
+      </Reveal>
 
       <a
         href={property.airbnbUrl}

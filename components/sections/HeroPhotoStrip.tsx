@@ -31,7 +31,7 @@ export function HeroPhotoStrip() {
             {[...STRIP_PHOTOS, ...STRIP_PHOTOS].map((photo, idx) => (
               <div
                 key={`${photo}-${idx}`}
-                className="h-full flex-shrink-0 rounded-sm overflow-hidden"
+                className="h-full flex-shrink-0 rounded-sm overflow-hidden shadow-soft"
                 style={{ width: '320px', minWidth: '320px' }}
               >
                 <Image
@@ -46,7 +46,7 @@ export function HeroPhotoStrip() {
           </div>
         </div>
         <Link
-          href="/a-casa"
+          href="/galeria"
           className="inline-block border-b border-terracota text-sm tracking-wide text-terracota uppercase"
         >
           Ver todas as fotos →

@@ -58,7 +58,7 @@ export default async function HospedagemNovaLimaEMacacosPage() {
           <FactList facts={biomeFacts} className="max-w-xl" />
         </div>
 
-        <div className="h-[360px] overflow-hidden border-t-[3px] border-terracota md:h-[460px]">
+        <div className="h-[360px] overflow-hidden border-t-[3px] border-terracota md:h-[460px] shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 will-change-transform">
           <Image
             src="/images/1.jpg"
             alt="Interior da Casa da Mata — hospedagem completa na Mata Atlântica"

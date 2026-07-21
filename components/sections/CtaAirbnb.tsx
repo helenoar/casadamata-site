@@ -13,7 +13,7 @@ export function CtaAirbnb() {
         href={property.airbnbUrl}
         target="_blank"
         rel="noopener"
-        className="inline-block bg-oliva-escuro px-10 py-5 text-sm tracking-wide text-off-2 uppercase"
+        className="inline-block bg-oliva-escuro px-10 py-5 text-sm tracking-wide text-off-2 uppercase shadow-soft hover:shadow-lifted transition-shadow duration-300"
       >
         Reservar no Airbnb
       </a>

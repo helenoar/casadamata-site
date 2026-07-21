@@ -29,13 +29,13 @@ export default function FaqPage() {
         Perguntas frequentes
       </p>
       <h1
-        className="mb-14 max-w-3xl font-light leading-[1.05] text-oliva-escuro"
+        className="mb-14 max-w-5xl font-light leading-[1.05] text-oliva-escuro"
         style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
       >
         O que você precisa saber antes de reservar a Casa da Mata?
       </h1>
 
-      <div className="max-w-3xl">
+      <div className="max-w-4xl">
         <Accordion items={faq} />
       </div>
     </main>

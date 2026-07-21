@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { getRegionalGuideSummaries } from "@/lib/mdx";
+import { Reveal } from "@/components/ui/Reveal";
 import { BackToHomeHeader } from "@/components/layout/BackToHomeHeader";
 import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { pageMetadata } from "@/lib/seo";
@@ -40,11 +41,11 @@ export default function OQueFazerPage() {
       </p>
 
       <div className="grid gap-10 md:grid-cols-3">
-        {guides.map(({ slug, frontmatter }) => (
+        {guides.map(({ slug, frontmatter }, index) => (
+          <Reveal key={slug} delayMs={index * 80}>
           <Link
-            key={slug}
             href={`/o-que-fazer/${slug}`}
-            className="block border-t-[3px] border-terracota pt-5"
+            className="block rounded-sm border-x border-b border-oliva-escuro/10 border-t-2 border-t-terracota/60 bg-off-1/50 backdrop-blur-sm p-6 shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300"
           >
             <h2 className="mb-2 text-lg font-medium text-oliva-escuro">
               {frontmatter.title}
@@ -53,6 +54,7 @@ export default function OQueFazerPage() {
               {frontmatter.description}
             </p>
           </Link>
+          </Reveal>
         ))}
       </div>
     </main>

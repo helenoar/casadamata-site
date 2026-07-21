@@ -37,14 +37,14 @@ export default function AnfitriaPage() {
         Sua anfitriã
       </p>
       <h1
-        className="mb-10 max-w-3xl font-light leading-[1.05] text-oliva-escuro"
+        className="mb-10 max-w-5xl font-light leading-[1.05] text-oliva-escuro"
         style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
       >
         Quem é a anfitriã da Casa da Mata?
       </h1>
 
       <div className="grid w-full items-start gap-10 md:grid-cols-[340px_1fr] md:gap-16">
-        <div className="mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden border-t-[3px] border-terracota md:mx-0 md:max-w-none">
+        <div className="mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden border-t-[3px] border-terracota md:mx-0 md:max-w-none shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 will-change-transform">
           <Image
             src="/images/anfitria-leticia.jpg"
             alt={`${host.name}, anfitriã da Casa da Mata`}
@@ -59,8 +59,8 @@ export default function AnfitriaPage() {
           <h2 className="mb-4 text-2xl font-medium text-oliva-escuro">
             {host.name}
           </h2>
-          <FactList facts={hostFacts} className="mb-8 max-w-xl" />
-          <p className="mb-8 max-w-xl leading-relaxed text-oliva-escuro">
+          <FactList facts={hostFacts} className="mb-8" />
+          <p className="mb-8 leading-relaxed text-oliva-escuro">
             {host.bio}
           </p>
           <a

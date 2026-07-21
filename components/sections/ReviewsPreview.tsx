@@ -3,6 +3,7 @@ import Link from "next/link";
 import { property } from "@/content/data/property";
 import { reviews } from "@/content/data/reviews";
 import { StarRating } from "@/components/ui/StarRating";
+import { Reveal } from "@/components/ui/Reveal";
 
 // As mesmas 3 avaliações do protótipo aprovado (Lucélia B., Maria L., Luís O.),
 // puxadas do array real por id — nunca texto solto.
@@ -30,8 +31,9 @@ export function ReviewsPreview() {
       </h2>
 
       <div className="grid gap-12 md:grid-cols-3 md:gap-16 lg:gap-20">
-        {previewReviews.map((review) => (
-          <blockquote key={review.id} className="border-l-2 border-terracota pl-5">
+        {previewReviews.map((review, index) => (
+          <Reveal key={review.id} delayMs={index * 80}>
+          <blockquote className="rounded-sm border-y border-r border-oliva-escuro/10 border-l-2 border-l-terracota bg-off-1/50 backdrop-blur-sm p-6 shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300">
             <StarRating rating={review.rating} className="mb-[0.85rem]" />
             <p className="mb-4 text-lg leading-relaxed text-oliva-escuro">
               {review.text}
@@ -40,6 +42,7 @@ export function ReviewsPreview() {
               {review.guestName}
             </cite>
           </blockquote>
+          </Reveal>
         ))}
       </div>
 

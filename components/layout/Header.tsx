@@ -4,6 +4,7 @@ import { property } from "@/content/data/property";
 
 const NAV_LINKS = [
   { href: "/a-casa", label: "A Casa" },
+  { href: "/galeria", label: "Galeria" },
   { href: "/o-que-fazer", label: "O que fazer" },
   { href: "/anfitria", label: "Anfitriã" },
   { href: "/avaliacoes", label: "Avaliações" },
@@ -12,7 +13,7 @@ const NAV_LINKS = [
 
 export function Header() {
   return (
-    <header className="flex w-full flex-wrap items-center justify-between gap-4 border-b border-terracota/30 px-6 py-6 md:px-16 lg:px-24">
+    <header className="sticky top-0 z-50 flex w-full flex-wrap items-center justify-between gap-4 border-b border-terracota/30 bg-off-2/80 px-6 py-6 backdrop-blur-md supports-[backdrop-filter]:bg-off-2/65 shadow-soft md:px-16 lg:px-24">
       <div className="flex items-center gap-3">
         <span className="text-2xl leading-none font-semibold tracking-[0.01em] text-oliva-escuro md:text-3xl">
           CASA DA MATA

@@ -39,11 +39,17 @@ export function Accordion({ items }: AccordionProps) {
                 {isOpen ? "−" : "+"}
               </span>
             </button>
-            {isOpen ? (
-              <p className="pb-6 leading-relaxed text-oliva-escuro">
-                {item.answer}
-              </p>
-            ) : null}
+            <div
+              className={`grid overflow-hidden transition-[grid-template-rows] duration-300 ease-in-out ${
+                isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+              }`}
+            >
+              <div className="min-h-0 overflow-hidden">
+                <p className="pb-6 leading-relaxed text-oliva-escuro">
+                  {item.answer}
+                </p>
+              </div>
+            </div>
           </div>
         );
       })}

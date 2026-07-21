@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { property } from "@/content/data/property";
 import { locationFacts } from "@/content/data/location-facts";
+import { Reveal } from "@/components/ui/Reveal";
 
 const HERO_SLIDESHOW_PHOTOS = [
   '/images/hero-rede-vinho.jpg',
@@ -34,6 +35,7 @@ export function Hero() {
 
   return (
     <section className="grid w-full items-start gap-10 px-6 pt-10 pb-16 md:grid-cols-2 md:px-16 lg:px-24">
+      <Reveal>
       <div>
         <div className="mb-8 flex justify-center">
           <div className="h-40 w-40 md:h-48 md:w-48 shrink-0 overflow-hidden rounded-full bg-off-1 flex items-center justify-center">
@@ -82,9 +84,10 @@ export function Hero() {
           {distanceToBh.km} km de BH.
         </p>
       </div>
+      </Reveal>
 
       <div>
-        <div className="h-[540px] overflow-hidden border-t-[3px] border-terracota relative mb-10">
+        <div className="h-[540px] overflow-hidden border-t-[3px] border-terracota relative mb-10 shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 will-change-transform">
           {HERO_SLIDESHOW_PHOTOS.map((photo, idx) => (
             <Image
               key={photo}
