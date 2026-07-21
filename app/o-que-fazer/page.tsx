@@ -36,15 +36,7 @@ export default function OQueFazerPage() {
       </h1>
       <p className="mb-14 max-w-2xl leading-relaxed text-oliva-escuro">
         Guias sobre a região de Nova Lima e Macacos, MG — trilhas, bairros
-        vizinhos e o contexto natural do entorno da Casa da Mata. Para saber
-        onde ficar hospedado na região, veja o guia completo de{" "}
-        <Link
-          href="/hospedagem-nova-lima-e-macacos"
-          className="underline decoration-terracota underline-offset-2"
-        >
-          hospedagem em Nova Lima e Macacos
-        </Link>
-        .
+        vizinhos e o contexto natural do entorno da Casa da Mata.
       </p>
 
       <div className="grid gap-10 md:grid-cols-3">
