@@ -24,19 +24,19 @@ export function HeroPhotoStrip() {
         }
       `}</style>
 
-      <section className="w-full overflow-hidden bg-off-1 py-6">
-        <div className="photo-strip-track flex h-[280px] gap-2" style={{ width: '200%' }}>
+      <section className="w-full overflow-hidden bg-off-1 py-8 px-6 md:px-16 lg:px-24">
+        <div className="photo-strip-track flex h-[240px] gap-4" style={{ width: '200%' }}>
           {[...STRIP_PHOTOS, ...STRIP_PHOTOS].map((photo, idx) => (
             <div
               key={`${photo}-${idx}`}
-              className="h-full flex-shrink-0"
-              style={{ width: 'calc(20% - 0.25rem)', minWidth: 'calc(20% - 0.25rem)' }}
+              className="h-full flex-shrink-0 rounded-sm overflow-hidden"
+              style={{ width: '200px', minWidth: '200px' }}
             >
               <Image
                 src={`/images/${photo}`}
                 alt={`Foto da Casa da Mata`}
-                width={280}
-                height={280}
+                width={200}
+                height={240}
                 className="h-full w-full object-cover"
               />
             </div>
