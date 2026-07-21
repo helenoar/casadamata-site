@@ -31,3 +31,4 @@ yarn-error.log*
 
 # scratch de acompanhamento do subagent-driven-development (não versionado)
 .superpowers/
+*.tsbuildinfo
