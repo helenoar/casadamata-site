@@ -37,7 +37,7 @@ export function Hero() {
           transform: translateX(0);
         }
         100% {
-          transform: translateX(-${(HERO_PHOTOS.length / 2) * 100}%);
+          transform: translateX(-300%);
         }
       }
       .carousel-track {
@@ -101,10 +101,17 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="h-[460px] overflow-hidden border-t-[3px] border-terracota">
-        <div className="carousel-track flex h-full gap-3" style={{ width: `${(HERO_PHOTOS.length * 2) * 100}%` }}>
+      <div className="h-[460px] overflow-hidden border-t-[3px] border-terracota relative">
+        <div
+          className="carousel-track flex h-full"
+          style={{ width: '600%' }}
+        >
           {[...HERO_PHOTOS, ...HERO_PHOTOS].map((photo, idx) => (
-            <div key={`${photo.src}-${idx}`} className="h-full flex-shrink-0" style={{ width: `${100 / (HERO_PHOTOS.length * 2)}%` }}>
+            <div
+              key={`${photo.src}-${idx}`}
+              className="h-full flex-shrink-0"
+              style={{ width: '16.666%' }}
+            >
               <Image
                 src={photo.src}
                 alt={photo.alt}
