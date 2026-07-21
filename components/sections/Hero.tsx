@@ -75,7 +75,7 @@ export function Hero() {
           ) : null}
         </div>
 
-        <p className="mb-10 max-w-xl text-lg leading-relaxed text-oliva-escuro text-center md:text-left">
+        <p className="mb-10 text-lg leading-relaxed text-oliva-escuro text-center md:text-left">
           Casa contêiner elegante e arejada em meio a {outdoorAreaSqm} m² de
           mata, com riacho ao pé da casa, fogo de chão e redário.{" "}
           {locationFacts.condominium}, {locationFacts.city} — a{" "}
