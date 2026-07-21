@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-oliva: #819c5d;
+  --color-oliva-escuro: #4d5c30;
+  --color-terracota: #8a4b2f;
+  --color-off-1: #eee8dc;
+  --color-off-2: #f9efdc;
+
+  --font-heading: var(--font-jost);
+  --font-body: var(--font-jost);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
