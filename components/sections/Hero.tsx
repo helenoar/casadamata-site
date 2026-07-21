@@ -33,7 +33,7 @@ export function Hero() {
   const outdoorAreaSqm = property.capacity.outdoorAreaSqm;
 
   return (
-    <section className="grid w-full items-center gap-10 px-6 pt-10 pb-16 md:grid-cols-2 md:px-16 lg:px-24">
+    <section className="grid w-full items-start gap-10 px-6 pt-10 pb-16 md:grid-cols-2 md:px-16 lg:px-24">
       <div>
         <div className="mb-12 flex justify-center md:justify-start">
           <div className="h-48 w-48 md:h-56 md:w-56 shrink-0 overflow-hidden rounded-full bg-off-1 flex items-center justify-center">
@@ -100,7 +100,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="h-[460px] overflow-hidden border-t-[3px] border-terracota relative">
+      <div className="h-[540px] overflow-hidden border-t-[3px] border-terracota relative">
         {HERO_SLIDESHOW_PHOTOS.map((photo, idx) => (
           <Image
             key={photo}
