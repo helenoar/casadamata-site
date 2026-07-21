@@ -28,10 +28,10 @@ export type GuideSummary = {
   frontmatter: GuideFrontmatter;
 };
 
-// A pillar page GEO tem rota própria (/hospedagem-nova-lima-e-macacos), fora
-// de /o-que-fazer/[slug] — mas o .mdx correspondente mora no mesmo diretório
-// content/guides/, por isso todo helper de listagem precisa excluí-la.
-export const PILLAR_GUIDE_SLUG = "hospedagem-nova-lima-e-macacos";
+// Pillar pages (GEO) têm rotas próprias, fora de /o-que-fazer/[slug] —
+// mas os .mdx correspondentes moram no mesmo diretório content/guides/,
+// por isso todo helper de listagem precisa excluir esses slugs.
+export const PILLAR_GUIDE_SLUGS = ["hospedagem-nova-lima-e-macacos", "inhotim-e-atracoes-turisticas"];
 
 function readGuideFile(slug: string): string {
   return fs.readFileSync(path.join(GUIDES_DIRECTORY, `${slug}.mdx`), "utf8");
@@ -53,10 +53,10 @@ export function getGuideFrontmatter(slug: string): GuideFrontmatter {
   return data as GuideFrontmatter;
 }
 
-// Guias regionais exibidos no hub /o-que-fazer — exclui o pillar page.
+// Guias regionais exibidos no hub /o-que-fazer — exclui as pillar pages.
 export function getRegionalGuideSummaries(): GuideSummary[] {
   return getAllGuideSlugs()
-    .filter((slug) => slug !== PILLAR_GUIDE_SLUG)
+    .filter((slug) => !PILLAR_GUIDE_SLUGS.includes(slug))
     .map((slug) => ({ slug, frontmatter: getGuideFrontmatter(slug) }))
     .sort((a, b) =>
       a.frontmatter.title.localeCompare(b.frontmatter.title, "pt-BR"),

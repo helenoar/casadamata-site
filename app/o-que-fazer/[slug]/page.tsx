@@ -5,7 +5,7 @@ import {
   compileGuide,
   getAllGuideSlugs,
   guideExists,
-  PILLAR_GUIDE_SLUG,
+  PILLAR_GUIDE_SLUGS,
 } from "@/lib/mdx";
 import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { PlaceJsonLd } from "@/components/schema/PlaceJsonLd";
@@ -13,16 +13,17 @@ import { pageMetadata } from "@/lib/seo";
 
 type Params = { params: Promise<{ slug: string }> };
 
-// O pillar page GEO tem rota própria (/hospedagem-nova-lima-e-macacos) e não
-// deve ser servido por esta rota genérica, mesmo o .mdx estando na mesma pasta.
+// As pillar pages GEO têm rotas próprias (/hospedagem-nova-lima-e-macacos,
+// /inhotim-e-atracoes-turisticas) e não devem ser servidas por esta rota
+// genérica, mesmo os .mdx estando na mesma pasta.
 export function generateStaticParams() {
   return getAllGuideSlugs()
-    .filter((slug) => slug !== PILLAR_GUIDE_SLUG)
+    .filter((slug) => !PILLAR_GUIDE_SLUGS.includes(slug))
     .map((slug) => ({ slug }));
 }
 
 function isValidGuideSlug(slug: string): boolean {
-  return slug !== PILLAR_GUIDE_SLUG && guideExists(slug);
+  return !PILLAR_GUIDE_SLUGS.includes(slug) && guideExists(slug);
 }
 
 export async function generateMetadata({

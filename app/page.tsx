@@ -6,6 +6,7 @@ import { Diferenciais } from "@/components/sections/Diferenciais";
 import { AmenitiesPreview } from "@/components/sections/AmenitiesPreview";
 import { ReviewsPreview } from "@/components/sections/ReviewsPreview";
 import { HostSection } from "@/components/sections/HostSection";
+import { AtracoesProximas } from "@/components/sections/AtracoesProximas";
 import { CtaAirbnb } from "@/components/sections/CtaAirbnb";
 import { DEFAULT_DESCRIPTION } from "@/lib/seo";
 
@@ -22,6 +23,7 @@ export default function Home() {
       <AmenitiesPreview />
       <ReviewsPreview />
       <HostSection />
+      <AtracoesProximas />
       <CtaAirbnb />
     </main>
   );
