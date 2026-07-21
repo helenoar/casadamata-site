@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { property } from "@/content/data/property";
 import { locationFacts } from "@/content/data/location-facts";
 import { FactList } from "@/components/ui/FactList";
+import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -25,6 +26,12 @@ export default function ReservarPage() {
 
   return (
     <main className="w-full px-6 pt-10 pb-28 text-center md:px-16 lg:px-24">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Reservar", path: "/reservar" },
+        ]}
+      />
       <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
         Reservar
       </p>

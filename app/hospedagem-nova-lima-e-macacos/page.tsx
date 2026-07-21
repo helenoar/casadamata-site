@@ -7,6 +7,8 @@ import { locationFacts } from "@/content/data/location-facts";
 import { compileGuide } from "@/lib/mdx";
 import { pageMetadata } from "@/lib/seo";
 import { FactList } from "@/components/ui/FactList";
+import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
+import { PlaceJsonLd } from "@/components/schema/PlaceJsonLd";
 
 const GUIDE_SLUG = "hospedagem-nova-lima-e-macacos";
 
@@ -31,6 +33,13 @@ export default async function HospedagemNovaLimaEMacacosPage() {
 
   return (
     <main className="w-full">
+      <PlaceJsonLd name={frontmatter.title} description={frontmatter.description} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: frontmatter.title, path: "/hospedagem-nova-lima-e-macacos" },
+        ]}
+      />
       <section className="grid w-full items-center gap-10 px-6 pt-10 pb-16 md:grid-cols-2 md:px-16 lg:px-24">
         <div>
           <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">

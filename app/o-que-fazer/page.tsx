@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { getRegionalGuideSummaries } from "@/lib/mdx";
+import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -16,6 +17,12 @@ export default function OQueFazerPage() {
 
   return (
     <main className="w-full px-6 pt-10 pb-24 md:px-16 lg:px-24">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "O que fazer", path: "/o-que-fazer" },
+        ]}
+      />
       <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
         O que fazer
       </p>

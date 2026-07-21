@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 import { faq } from "@/content/data/faq";
 import { Accordion } from "@/components/ui/Accordion";
+import { FaqJsonLd } from "@/components/schema/FaqJsonLd";
+import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -14,6 +16,13 @@ export const metadata: Metadata = pageMetadata({
 export default function FaqPage() {
   return (
     <main className="w-full px-6 pt-10 pb-24 md:px-16 lg:px-24">
+      <FaqJsonLd />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Perguntas Frequentes", path: "/faq" },
+        ]}
+      />
       <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
         Perguntas frequentes
       </p>

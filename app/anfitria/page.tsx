@@ -3,6 +3,8 @@ import Image from "next/image";
 
 import { host } from "@/content/data/host";
 import { FactList } from "@/components/ui/FactList";
+import { PersonJsonLd } from "@/components/schema/PersonJsonLd";
+import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -22,6 +24,13 @@ export default function AnfitriaPage() {
 
   return (
     <main className="w-full px-6 pt-10 pb-24 md:px-16 lg:px-24">
+      <PersonJsonLd />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Anfitriã", path: "/anfitria" },
+        ]}
+      />
       <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
         Sua anfitriã
       </p>

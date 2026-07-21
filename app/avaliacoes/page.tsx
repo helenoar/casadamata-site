@@ -4,6 +4,8 @@ import { property } from "@/content/data/property";
 import { reviews, reviewsSummary } from "@/content/data/reviews";
 import { StarRating } from "@/components/ui/StarRating";
 import { FactList } from "@/components/ui/FactList";
+import { ReviewJsonLd } from "@/components/schema/ReviewJsonLd";
+import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -37,6 +39,13 @@ export default function AvaliacoesPage() {
 
   return (
     <main className="w-full px-6 pt-10 pb-24 md:px-16 lg:px-24">
+      <ReviewJsonLd />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Avaliações", path: "/avaliacoes" },
+        ]}
+      />
       <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
         Quem já ficou
       </p>

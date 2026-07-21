@@ -7,6 +7,8 @@ import {
   guideExists,
   PILLAR_GUIDE_SLUG,
 } from "@/lib/mdx";
+import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
+import { PlaceJsonLd } from "@/components/schema/PlaceJsonLd";
 import { pageMetadata } from "@/lib/seo";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -49,6 +51,14 @@ export default async function GuidePage({ params }: Params) {
 
   return (
     <main className="w-full px-6 pt-10 pb-24 md:px-16 lg:px-24">
+      <PlaceJsonLd name={frontmatter.title} description={frontmatter.description} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", path: "/" },
+          { name: "O que fazer", path: "/o-que-fazer" },
+          { name: frontmatter.title, path: `/o-que-fazer/${slug}` },
+        ]}
+      />
       <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
         O que fazer
       </p>
