@@ -62,32 +62,32 @@ export function Hero() {
       </div>
 
       <div className="grid h-[460px] grid-cols-2 gap-3">
-        <div className="col-span-2 h-[260px] overflow-hidden border-t-[3px] border-terracota">
+        <div className="group col-span-2 h-[260px] overflow-hidden border-t-[3px] border-terracota">
           <Image
             src="/images/hero-rede-vinho.jpg"
             alt="Rede com taças de vinho na varanda da Casa da Mata, em meio à Mata Atlântica"
             width={900}
             height={600}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
             priority
           />
         </div>
-        <div className="h-[184px] overflow-hidden border-t-[3px] border-terracota">
+        <div className="group h-[184px] overflow-hidden border-t-[3px] border-terracota">
           <Image
             src="/images/chuveiro-externo.jpg"
             alt="Chuveiro externo de madeira da Casa da Mata"
             width={450}
             height={450}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
           />
         </div>
-        <div className="h-[184px] overflow-hidden border-t-[3px] border-terracota">
+        <div className="group h-[184px] overflow-hidden border-t-[3px] border-terracota">
           <Image
             src="/images/jantar-externo.jpg"
             alt="Mesa de jantar externa da Casa da Mata em meio ao jardim"
             width={450}
             height={450}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
           />
         </div>
       </div>
