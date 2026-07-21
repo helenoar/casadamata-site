@@ -74,9 +74,9 @@ export default function ACasaPage() {
         >
           O que tem dentro da Casa da Mata?
         </h1>
-        <FactList facts={capacityFacts} className="mb-14 max-w-2xl" />
+        <FactList facts={capacityFacts} className="mb-14" />
 
-        <div className="max-w-4xl">
+        <div>
           {property.descriptionParagraphs.map((paragraph, index) =>
             SECTION_HEADINGS.has(paragraph) ? (
               <h2
@@ -147,7 +147,7 @@ export default function ACasaPage() {
         <h2 className="mb-6 text-2xl font-medium text-oliva-escuro">
           Regras da casa
         </h2>
-        <FactList facts={property.houseRules} className="max-w-2xl" />
+        <FactList facts={property.houseRules} />
 
         <a
           href={property.airbnbUrl}
