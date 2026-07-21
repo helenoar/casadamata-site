@@ -35,20 +35,20 @@ export function Hero() {
   return (
     <section className="grid w-full items-start gap-10 px-6 pt-10 pb-16 md:grid-cols-2 md:px-16 lg:px-24">
       <div>
-        <div className="mb-12 flex justify-center md:justify-start">
-          <div className="h-48 w-48 md:h-56 md:w-56 shrink-0 overflow-hidden rounded-full bg-off-1 flex items-center justify-center">
+        <div className="mb-8 flex justify-center">
+          <div className="h-40 w-40 md:h-48 md:w-48 shrink-0 overflow-hidden rounded-full bg-off-1 flex items-center justify-center">
             <Image
               src="/logo-casa-da-mata.png"
               alt="Logo Casa da Mata"
-              width={280}
-              height={280}
+              width={240}
+              height={240}
               className="h-[145%] w-[145%] object-cover"
               priority
             />
           </div>
         </div>
 
-        <div className="mb-8 text-center md:text-left">
+        <div className="mb-8 text-center">
           <div className="text-oliva-escuro/60 text-sm tracking-widest uppercase mb-6">
             Casa da Mata · 45
           </div>
