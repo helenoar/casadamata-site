@@ -24,13 +24,13 @@ const previewItems = PREVIEW_LABELS.filter((label) =>
 
 export function AmenitiesPreview() {
   return (
-    <section className="w-full bg-off-1 px-6 py-24 md:px-16 lg:px-24">
-      <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
+    <section className="w-full bg-off-1 px-6 py-20 md:py-32 lg:py-40 md:px-16 lg:px-24">
+      <p className="mb-6 text-xs tracking-[0.2em] text-terracota uppercase">
         A casa por dentro
       </p>
       <h2
-        className="mb-12 font-light text-oliva-escuro"
-        style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
+        className="mb-20 font-light leading-[1] text-oliva-escuro"
+        style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
       >
         Tudo o que você precisa, nada além disso.
       </h2>

@@ -32,18 +32,18 @@ export function Diferenciais() {
   ];
 
   return (
-    <section id="casa" className="w-full px-6 pb-28 md:px-16 lg:px-24">
-      <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
+    <section id="casa" className="w-full px-6 py-20 md:py-32 lg:py-40 md:px-16 lg:px-24">
+      <p className="mb-6 text-xs tracking-[0.2em] text-terracota uppercase">
         Diferenciais
       </p>
       <h2
-        className="mb-16 font-light text-oliva-escuro"
-        style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
+        className="mb-20 font-light leading-[1] text-oliva-escuro"
+        style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
       >
         Feita para desacelerar.
       </h2>
 
-      <div className="grid gap-x-16 gap-y-12 md:grid-cols-2">
+      <div className="grid gap-x-16 gap-y-16 md:grid-cols-2 md:gap-y-20 lg:gap-28">
         {differentials.map((item) => (
           <div key={item.title} className="border-t border-terracota/35 pt-6">
             <h3 className="mb-2 flex items-center gap-2 text-xl font-medium text-oliva-escuro">

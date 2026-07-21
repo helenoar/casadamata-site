@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { property } from "@/content/data/property";
 import { locationFacts } from "@/content/data/location-facts";
 import { FactList } from "@/components/ui/FactList";
+import { BackToHomeHeader } from "@/components/layout/BackToHomeHeader";
 import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { pageMetadata } from "@/lib/seo";
 

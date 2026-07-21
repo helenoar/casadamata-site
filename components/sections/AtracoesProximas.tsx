@@ -2,14 +2,14 @@ import Link from "next/link";
 
 export function AtracoesProximas() {
   return (
-    <section className="w-full bg-off-1 px-6 py-20 md:px-16 lg:px-24">
+    <section className="w-full bg-off-1 px-6 py-20 md:py-32 lg:py-40 md:px-16 lg:px-24">
       <div className="max-w-3xl">
         <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
           Explore a região
         </p>
         <h2
-          className="mb-6 font-light leading-[1.05] text-oliva-escuro"
-          style={{ fontSize: "clamp(1.5rem, 3vw, 2.5rem)" }}
+          className="mb-8 font-light leading-[1.05] text-oliva-escuro"
+          style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
         >
           Inhotim, Topo do Mundo e 20+ atrações turísticas verificadas
         </h2>

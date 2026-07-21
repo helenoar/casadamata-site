@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { faq } from "@/content/data/faq";
 import { Accordion } from "@/components/ui/Accordion";
 import { FaqJsonLd } from "@/components/schema/FaqJsonLd";
+import { BackToHomeHeader } from "@/components/layout/BackToHomeHeader";
 import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { pageMetadata } from "@/lib/seo";
 

@@ -16,20 +16,20 @@ export function ReviewsPreview() {
   return (
     <section
       id="avaliacoes"
-      className="w-full px-6 py-28 md:px-16 lg:px-24"
+      className="w-full px-6 py-20 md:py-32 lg:py-40 md:px-16 lg:px-24"
     >
       <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
         Quem já ficou
       </p>
       <h2
-        className="mb-16 font-light text-oliva-escuro"
-        style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
+        className="mb-20 font-light leading-[1] text-oliva-escuro"
+        style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
       >
         {property.reputation.overallRating.toFixed(1).replace(".", ",")} de 5
         estrelas, em {property.reputation.reviewCount} avaliações.
       </h2>
 
-      <div className="grid gap-10 md:grid-cols-3">
+      <div className="grid gap-12 md:grid-cols-3 md:gap-16 lg:gap-20">
         {previewReviews.map((review) => (
           <blockquote key={review.id} className="border-l-2 border-terracota pl-5">
             <StarRating rating={review.rating} className="mb-[0.85rem]" />

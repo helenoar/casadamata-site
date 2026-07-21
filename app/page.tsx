@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { Hero } from "@/components/sections/Hero";
-import { GalleryStrip } from "@/components/sections/GalleryStrip";
+import { GalleryStripCarousel } from "@/components/sections/GalleryStripCarousel";
 import { Diferenciais } from "@/components/sections/Diferenciais";
 import { AmenitiesPreview } from "@/components/sections/AmenitiesPreview";
 import { ReviewsPreview } from "@/components/sections/ReviewsPreview";
@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <GalleryStrip />
+      <GalleryStripCarousel />
       <Diferenciais />
       <AmenitiesPreview />
       <ReviewsPreview />

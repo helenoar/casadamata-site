@@ -4,6 +4,7 @@ import Image from "next/image";
 import { host } from "@/content/data/host";
 import { FactList } from "@/components/ui/FactList";
 import { PersonJsonLd } from "@/components/schema/PersonJsonLd";
+import { BackToHomeHeader } from "@/components/layout/BackToHomeHeader";
 import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { pageMetadata } from "@/lib/seo";
 

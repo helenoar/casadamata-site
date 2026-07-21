@@ -5,6 +5,7 @@ import { reviews, reviewsSummary } from "@/content/data/reviews";
 import { StarRating } from "@/components/ui/StarRating";
 import { FactList } from "@/components/ui/FactList";
 import { ReviewJsonLd } from "@/components/schema/ReviewJsonLd";
+import { BackToHomeHeader } from "@/components/layout/BackToHomeHeader";
 import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { pageMetadata } from "@/lib/seo";
 

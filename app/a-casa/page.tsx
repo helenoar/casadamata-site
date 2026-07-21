@@ -5,6 +5,7 @@ import { property } from "@/content/data/property";
 import { amenityCategories, amenityTotalCount } from "@/content/data/amenities";
 import { locationFacts } from "@/content/data/location-facts";
 import { FactList } from "@/components/ui/FactList";
+import { BackToHomeHeader } from "@/components/layout/BackToHomeHeader";
 import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { pageMetadata } from "@/lib/seo";
 
@@ -55,6 +56,7 @@ export default function ACasaPage() {
 
   return (
     <main className="w-full">
+      <BackToHomeHeader />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", path: "/" },

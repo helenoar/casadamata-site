@@ -7,6 +7,7 @@ import { locationFacts } from "@/content/data/location-facts";
 import { compileGuide } from "@/lib/mdx";
 import { pageMetadata } from "@/lib/seo";
 import { FactList } from "@/components/ui/FactList";
+import { BackToHomeHeader } from "@/components/layout/BackToHomeHeader";
 import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { PlaceJsonLd } from "@/components/schema/PlaceJsonLd";
 
@@ -33,6 +34,7 @@ export default async function HospedagemNovaLimaEMacacosPage() {
 
   return (
     <main className="w-full">
+      <BackToHomeHeader />
       <PlaceJsonLd name={frontmatter.title} description={frontmatter.description} />
       <BreadcrumbJsonLd
         items={[
