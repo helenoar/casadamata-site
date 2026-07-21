@@ -31,7 +31,7 @@ export type GuideSummary = {
 // Pillar pages (GEO) têm rotas próprias, fora de /o-que-fazer/[slug] —
 // mas os .mdx correspondentes moram no mesmo diretório content/guides/,
 // por isso todo helper de listagem precisa excluir esses slugs.
-export const PILLAR_GUIDE_SLUGS = ["hospedagem-nova-lima-e-macacos", "inhotim-e-atracoes-turisticas"];
+export const PILLAR_GUIDE_SLUGS = ["inhotim-e-atracoes-turisticas"];
 
 function readGuideFile(slug: string): string {
   return fs.readFileSync(path.join(GUIDES_DIRECTORY, `${slug}.mdx`), "utf8");

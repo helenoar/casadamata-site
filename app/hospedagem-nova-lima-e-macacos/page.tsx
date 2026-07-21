@@ -60,8 +60,8 @@ export default async function HospedagemNovaLimaEMacacosPage() {
 
         <div className="h-[360px] overflow-hidden border-t-[3px] border-terracota md:h-[460px]">
           <Image
-            src="/images/exterior-container-jardim.jpg"
-            alt="Casa da Mata em meio ao jardim e à Mata Atlântica do Condomínio Pasárgada"
+            src="/images/1.jpg"
+            alt="Interior da Casa da Mata — hospedagem completa na Mata Atlântica"
             width={900}
             height={900}
             className="h-full w-full object-cover"
