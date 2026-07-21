@@ -35,7 +35,20 @@ export function Hero() {
   return (
     <section className="grid w-full items-center gap-10 px-6 pt-10 pb-16 md:grid-cols-2 md:px-16 lg:px-24">
       <div>
-        <div className="mb-8 flex flex-wrap items-center gap-3">
+        <div className="mb-10 flex items-center justify-center md:justify-start">
+          <div className="h-32 w-32 md:h-40 md:w-40 shrink-0 overflow-hidden rounded-full bg-off-1 flex items-center justify-center">
+            <Image
+              src="/logo-casa-da-mata.png"
+              alt="Logo Casa da Mata"
+              width={200}
+              height={200}
+              className="h-[145%] w-[145%] object-cover"
+              priority
+            />
+          </div>
+        </div>
+
+        <div className="mb-8 flex flex-wrap items-center justify-center gap-3 md:justify-start">
           <span className="rounded-full border border-oliva-escuro px-3 py-1 text-xs tracking-[0.12em] text-oliva-escuro uppercase">
             ★ {property.reputation.overallRating.toFixed(1).replace(".", ",")}{" "}
             · {property.reputation.reviewCount} avaliações
@@ -47,24 +60,29 @@ export function Hero() {
           ) : null}
         </div>
 
-        <h1
-          className="mb-8 font-light leading-[0.95] text-oliva-escuro"
-          style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}
-        >
-          Um refúgio
-          <br />
-          <span className="font-semibold">na Mata Atlântica</span>
-          <br />a {distanceToBh.km} km de BH.
-        </h1>
+        <div className="mb-8 text-center md:text-left">
+          <div className="text-oliva-escuro/60 text-sm tracking-widest uppercase mb-2">
+            Casa da Mata
+          </div>
+          <h1
+            className="font-light leading-[0.95] text-oliva-escuro"
+            style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
+          >
+            Um refúgio
+            <br />
+            <span className="font-semibold">na Mata Atlântica</span>
+            <br />a {distanceToBh.km} km de BH.
+          </h1>
+        </div>
 
-        <p className="mb-10 max-w-xl text-lg leading-relaxed text-oliva-escuro">
+        <p className="mb-10 max-w-xl text-lg leading-relaxed text-oliva-escuro text-center md:text-left">
           Casa contêiner elegante e arejada em meio a {outdoorAreaSqm} m² de
           mata, com riacho ao pé da casa, fogo de chão e redário.{" "}
           {locationFacts.condominium}, {locationFacts.city} — a{" "}
           {distanceToBh.km} km de BH.
         </p>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 justify-center md:justify-start">
           <a
             href={property.airbnbUrl}
             target="_blank"
