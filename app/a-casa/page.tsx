@@ -46,13 +46,13 @@ const ILLUSTRATION_PHOTOS = [
 
 export default function ACasaPage() {
   const { capacity } = property;
-  const capacityFacts = [
-    `${capacity.guests} hóspedes`,
-    `${capacity.bedrooms} quarto`,
-    `${capacity.beds} cama`,
-    `${capacity.bathrooms} banheiro privado`,
-    `${capacity.outdoorAreaSqm} m² de área externa`,
-    `${locationFacts.condominium}, ${locationFacts.city}/${property.location.state}`,
+  const highlightFacts = [
+    `${capacity.outdoorAreaSqm} m² de Mata Atlântica`,
+    "Riacho privado",
+    "Fogo de chão",
+    "Redes na mata",
+    "Chuveiro ao ar livre",
+    "Quarto integrado",
   ];
 
   return (
@@ -72,9 +72,9 @@ export default function ACasaPage() {
           className="mb-8 max-w-5xl font-light leading-[1.05] text-oliva-escuro"
           style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
         >
-          O que tem dentro da Casa da Mata?
+          Refúgio de Luxo para 2
         </h1>
-        <FactList facts={capacityFacts} className="mb-14" />
+        <FactList facts={highlightFacts} className="mb-14" />
 
         <div>
           {property.descriptionParagraphs.map((paragraph, index) =>
