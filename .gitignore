@@ -21,7 +21,7 @@ dist/
 
 # material bruto do cliente (originais grandes, não vão pro repo — só as versões
 # otimizadas dentro de public/ e _design-exploration/assets entram no git)
-"Midias /"
+Midias*/
 
 # logs
 npm-debug.log*
