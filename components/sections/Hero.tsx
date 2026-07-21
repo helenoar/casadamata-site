@@ -4,21 +4,6 @@ import Link from "next/link";
 import { property } from "@/content/data/property";
 import { locationFacts } from "@/content/data/location-facts";
 
-const HERO_PHOTOS = [
-  {
-    src: '/images/hero-rede-vinho.jpg',
-    alt: 'Rede com taças de vinho na varanda da Casa da Mata, em meio à Mata Atlântica',
-  },
-  {
-    src: '/images/chuveiro-externo.jpg',
-    alt: 'Chuveiro externo de madeira da Casa da Mata',
-  },
-  {
-    src: '/images/jantar-externo.jpg',
-    alt: 'Mesa de jantar externa da Casa da Mata em meio ao jardim',
-  },
-];
-
 export function Hero() {
   const guestFavoriteBadge = property.badges.find(
     (badge) => badge.label === "Preferido dos hóspedes",
@@ -27,93 +12,85 @@ export function Hero() {
   const outdoorAreaSqm = property.capacity.outdoorAreaSqm;
 
   return (
-    <>
-      <style>{`
-        @keyframes scroll-carousel {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-300%); }
-        }
-        .hero-carousel-track {
-          animation: scroll-carousel 20s linear infinite;
-        }
-        .hero-carousel-track:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-
-      <section className="grid w-full items-center gap-10 px-6 pt-10 pb-16 md:grid-cols-2 md:px-16 lg:px-24">
-        <div>
-          <div className="mb-8 flex flex-wrap items-center gap-3">
-            <span className="rounded-full border border-oliva-escuro px-3 py-1 text-xs tracking-[0.12em] text-oliva-escuro uppercase">
-              ★ {property.reputation.overallRating.toFixed(1).replace(".", ",")}{" "}
-              · {property.reputation.reviewCount} avaliações
+    <section className="grid w-full items-center gap-10 px-6 pt-10 pb-16 md:grid-cols-2 md:px-16 lg:px-24">
+      <div>
+        <div className="mb-8 flex flex-wrap items-center gap-3">
+          <span className="rounded-full border border-oliva-escuro px-3 py-1 text-xs tracking-[0.12em] text-oliva-escuro uppercase">
+            ★ {property.reputation.overallRating.toFixed(1).replace(".", ",")}{" "}
+            · {property.reputation.reviewCount} avaliações
+          </span>
+          {guestFavoriteBadge ? (
+            <span className="text-xs tracking-[0.12em] text-terracota uppercase">
+              {guestFavoriteBadge.label} · Top 5%
             </span>
-            {guestFavoriteBadge ? (
-              <span className="text-xs tracking-[0.12em] text-terracota uppercase">
-                {guestFavoriteBadge.label} · Top 5%
-              </span>
-            ) : null}
-          </div>
-
-          <h1
-            className="mb-8 font-light leading-[0.95] text-oliva-escuro"
-            style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}
-          >
-            Um refúgio
-            <br />
-            <span className="font-semibold">na Mata Atlântica</span>
-            <br />a {distanceToBh.km} km de BH.
-          </h1>
-
-          <p className="mb-10 max-w-xl text-lg leading-relaxed text-oliva-escuro">
-            Casa contêiner elegante e arejada em meio a {outdoorAreaSqm} m² de
-            mata, com riacho ao pé da casa, fogo de chão e redário.{" "}
-            {locationFacts.condominium}, {locationFacts.city} — a{" "}
-            {distanceToBh.km} km de BH.
-          </p>
-
-          <div className="flex flex-wrap gap-4">
-            <a
-              href={property.airbnbUrl}
-              target="_blank"
-              rel="noopener"
-              className="bg-oliva-escuro px-8 py-4 text-sm tracking-wide text-off-2 uppercase"
-            >
-              Ver disponibilidade no Airbnb
-            </a>
-            <Link
-              href="/a-casa"
-              className="border border-oliva-escuro px-8 py-4 text-sm tracking-wide text-oliva-escuro uppercase"
-            >
-              Conhecer a casa
-            </Link>
-          </div>
+          ) : null}
         </div>
 
-        <div className="h-[460px] overflow-hidden border-t-[3px] border-terracota">
-          <div
-            className="hero-carousel-track flex h-full"
-            style={{ width: '600%' }}
+        <h1
+          className="mb-8 font-light leading-[0.95] text-oliva-escuro"
+          style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)" }}
+        >
+          Um refúgio
+          <br />
+          <span className="font-semibold">na Mata Atlântica</span>
+          <br />a {distanceToBh.km} km de BH.
+        </h1>
+
+        <p className="mb-10 max-w-xl text-lg leading-relaxed text-oliva-escuro">
+          Casa contêiner elegante e arejada em meio a {outdoorAreaSqm} m² de
+          mata, com riacho ao pé da casa, fogo de chão e redário.{" "}
+          {locationFacts.condominium}, {locationFacts.city} — a{" "}
+          {distanceToBh.km} km de BH.
+        </p>
+
+        <div className="flex flex-wrap gap-4">
+          <a
+            href={property.airbnbUrl}
+            target="_blank"
+            rel="noopener"
+            className="bg-oliva-escuro px-8 py-4 text-sm tracking-wide text-off-2 uppercase"
           >
-            {[...HERO_PHOTOS, ...HERO_PHOTOS].map((photo, idx) => (
-              <div
-                key={`${photo.src}-${idx}`}
-                className="h-full flex-shrink-0"
-                style={{ width: '16.666%' }}
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={300}
-                  height={460}
-                  className="h-full w-full object-cover"
-                  priority={idx < HERO_PHOTOS.length}
-                />
-              </div>
-            ))}
-          </div>
+            Ver disponibilidade no Airbnb
+          </a>
+          <Link
+            href="/a-casa"
+            className="border border-oliva-escuro px-8 py-4 text-sm tracking-wide text-oliva-escuro uppercase"
+          >
+            Conhecer a casa
+          </Link>
         </div>
-      </section>
-    </>
+      </div>
+
+      <div className="grid h-[460px] grid-cols-2 gap-3">
+        <div className="group col-span-2 h-[260px] overflow-hidden border-t-[3px] border-terracota">
+          <Image
+            src="/images/hero-rede-vinho.jpg"
+            alt="Rede com taças de vinho na varanda da Casa da Mata, em meio à Mata Atlântica"
+            width={900}
+            height={600}
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
+            priority
+          />
+        </div>
+        <div className="group h-[184px] overflow-hidden border-t-[3px] border-terracota">
+          <Image
+            src="/images/chuveiro-externo.jpg"
+            alt="Chuveiro externo de madeira da Casa da Mata"
+            width={450}
+            height={450}
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
+          />
+        </div>
+        <div className="group h-[184px] overflow-hidden border-t-[3px] border-terracota">
+          <Image
+            src="/images/jantar-externo.jpg"
+            alt="Mesa de jantar externa da Casa da Mata em meio ao jardim"
+            width={450}
+            height={450}
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
+          />
+        </div>
+      </div>
+    </section>
   );
 }
