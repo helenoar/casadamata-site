@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,21 +23,33 @@ const HERO_PHOTOS = [
 ];
 
 export function Hero() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev === HERO_PHOTOS.length - 1 ? 0 : prev + 1));
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   const guestFavoriteBadge = property.badges.find(
     (badge) => badge.label === "Preferido dos hóspedes",
   );
   const distanceToBh = locationFacts.distances[0];
   const outdoorAreaSqm = property.capacity.outdoorAreaSqm;
+
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes scroll-carousel {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-${(HERO_PHOTOS.length / 2) * 100}%);
+        }
+      }
+      .carousel-track {
+        animation: scroll-carousel 20s linear infinite;
+      }
+      .carousel-track:hover {
+        animation-play-state: paused;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
 
   return (
     <section className="grid w-full items-center gap-10 px-6 pt-10 pb-16 md:grid-cols-2 md:px-16 lg:px-24">
@@ -89,22 +101,17 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="h-[460px] overflow-hidden border-t-[3px] border-terracota relative">
-        <div
-          className="flex h-full transition-transform duration-700 ease-in-out"
-          style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
-          }}
-        >
-          {HERO_PHOTOS.map((photo) => (
-            <div key={photo.src} className="min-w-full h-full">
+      <div className="h-[460px] overflow-hidden border-t-[3px] border-terracota">
+        <div className="carousel-track flex h-full gap-3" style={{ width: `${(HERO_PHOTOS.length * 2) * 100}%` }}>
+          {[...HERO_PHOTOS, ...HERO_PHOTOS].map((photo, idx) => (
+            <div key={`${photo.src}-${idx}`} className="h-full flex-shrink-0" style={{ width: `${100 / (HERO_PHOTOS.length * 2)}%` }}>
               <Image
                 src={photo.src}
                 alt={photo.alt}
-                width={900}
-                height={600}
+                width={300}
+                height={460}
                 className="h-full w-full object-cover"
-                priority
+                priority={idx < HERO_PHOTOS.length}
               />
             </div>
           ))}
