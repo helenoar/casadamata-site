@@ -67,6 +67,18 @@ Objetivo:
 3. `git push` → Vercel deploya automaticamente (~60s)
 4. Verificar em casadamata45.vercel.app
 
+## Setup Local (primeira vez)
+
+Se o projeto não estiver linkado à Vercel localmente (falta pasta `.vercel/`):
+
+```bash
+npm run vercel:link
+```
+
+Isso vincula o repositório ao projeto Vercel e ativa o auto-deploy no push.
+
+**Nota:** A pasta `.vercel/` é gerada localmente e NÃO deve ser commitada (já está em `.gitignore`). Cada dev roda `npm run vercel:link` uma única vez para ativar o auto-deploy.
+
 ## Contato/Aprovações
 
 - **Heleno (designer/dev):** helenoando@gmail.com
