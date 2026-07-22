@@ -126,6 +126,25 @@ export default function ARegiaoPage() {
           );
         })}
       </div>
+
+      <div className="mt-20 pt-20 border-t border-terracota/20">
+        <Reveal>
+          <div className="max-w-2xl">
+            <h3 className="mb-6 text-xl font-light text-oliva-escuro">
+              Quer explorar todas as atrações?
+            </h3>
+            <p className="mb-8 text-sm leading-relaxed text-oliva-escuro/80">
+              Conheça nosso guia turístico completo com mais de 20 atrações verificadas: museus, trilhas de trekking, cachoeiras com piscinas naturais, gastronomia mineira e muito mais.
+            </p>
+            <Link
+              href="/inhotim-e-atracoes-turisticas"
+              className="inline-block bg-oliva-escuro px-10 py-4 text-sm tracking-wide text-off-2 uppercase hover:bg-terracota transition-colors shadow-soft hover:shadow-lifted"
+            >
+              Ver Guia Turístico Completo
+            </Link>
+          </div>
+        </Reveal>
+      </div>
     </main>
   );
 }
