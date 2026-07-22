@@ -29,26 +29,32 @@ const ILLUSTRATION_PHOTOS = [
   {
     src: "/images/foto-1.jpg",
     alt: "Banheiro minimalista da Casa da Mata",
+    size: "large",
   },
   {
     src: "/images/foto-2.jpg",
     alt: "Kitchenette integrada com living",
+    size: "small",
   },
   {
     src: "/images/foto-3.jpg",
     alt: "Kitchenette e sala em outro ângulo",
+    size: "small",
   },
   {
     src: "/images/foto-4.jpg",
-    alt: "Quarto suite com vista para varanda",
+    alt: "Vista integrada dos ambientes",
+    size: "small",
   },
   {
     src: "/images/foto-5.jpg",
-    alt: "Quarto suite integrado ao living",
+    alt: "Quarto suite com vista para varanda",
+    size: "large",
   },
   {
     src: "/images/foto-6.jpg",
-    alt: "Interior do quarto com closet",
+    alt: "Detalhe interior da Casa da Mata",
+    size: "small",
   },
 ];
 
@@ -105,21 +111,31 @@ export default function ACasaPage() {
             )}
           </div>
 
-          <div className="mt-14 grid grid-cols-2 md:grid-cols-3 gap-3">
-            {ILLUSTRATION_PHOTOS.map((photo) => (
-              <div
-                key={photo.src}
-                className="h-[220px] md:h-[250px] overflow-hidden border-t-[3px] border-terracota shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 will-change-transform"
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={600}
-                  height={600}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            ))}
+          <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[220px] md:auto-rows-[240px]">
+            {ILLUSTRATION_PHOTOS.map((photo, idx) => {
+              let colSpan = "col-span-1";
+              let rowSpan = "row-span-1";
+
+              if (photo.size === "large") {
+                colSpan = "col-span-2 md:col-span-2";
+                rowSpan = "row-span-2 md:row-span-2";
+              }
+
+              return (
+                <div
+                  key={photo.src}
+                  className={`${colSpan} ${rowSpan} overflow-hidden border-t-[3px] border-terracota shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 will-change-transform`}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={600}
+                    height={600}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
