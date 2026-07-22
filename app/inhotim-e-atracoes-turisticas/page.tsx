@@ -82,34 +82,117 @@ export default async function InhotimEAtracoesPage() {
 
           <div className="mt-20 mb-16">
             <h2 className="mb-8 text-2xl font-light text-oliva-escuro">
-              Todas as atrações verificadas
+              Inhotim — Destaque Principal
+            </h2>
+
+            {attractions
+              .filter((a) => a.id === "inhotim")
+              .map((inhotim) => (
+                <div key={inhotim.id} className="mb-16 overflow-hidden rounded-sm border-t-[3px] border-terracota">
+                  <div className="grid md:grid-cols-2 gap-0">
+                    <div className="h-[360px] md:h-[460px] overflow-hidden">
+                      <Image
+                        src="https://images.unsplash.com/photo-1578874691223-04266b84c73d?auto=format&fit=crop&w=900&q=80"
+                        alt="Instituto Inhotim - museu de arte contemporânea a céu aberto em Brumadinho"
+                        width={900}
+                        height={500}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="bg-off-2 p-6 md:p-8 flex flex-col justify-between">
+                      <div>
+                        <p className="mb-2 text-xs tracking-[0.2em] text-terracota uppercase font-semibold">
+                          {inhotim.type}
+                        </p>
+                        <h3 className="text-2xl md:text-3xl font-light text-oliva-escuro mb-4">
+                          {inhotim.name}
+                        </h3>
+                        <p className="text-sm leading-relaxed text-oliva-escuro/80 mb-6">
+                          {inhotim.description}
+                        </p>
+                        <div className="mb-6">
+                          <p className="text-xs font-semibold text-oliva-escuro/60 mb-2 uppercase">Destaques:</p>
+                          <ul className="text-xs text-oliva-escuro/70 space-y-1">
+                            {inhotim.whyFamous.map((reason, idx) => (
+                              <li key={idx} className="flex gap-2">
+                                <span>•</span>
+                                <span>{reason}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="flex flex-col gap-3">
+                        {inhotim.website && (
+                          <a
+                            href={inhotim.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block bg-oliva-escuro px-6 py-3 text-xs tracking-wide text-off-2 uppercase hover:bg-terracota transition-colors"
+                          >
+                            Visitar Site Oficial
+                          </a>
+                        )}
+                        {inhotim.googleMapsUrl && (
+                          <a
+                            href={inhotim.googleMapsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block border border-oliva-escuro px-6 py-3 text-xs tracking-wide text-oliva-escuro uppercase hover:bg-oliva-escuro hover:text-off-2 transition-colors"
+                          >
+                            Ver no Google Maps
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
+
+          <div className="mt-20 mb-16">
+            <h2 className="mb-8 text-2xl font-light text-oliva-escuro">
+              Outras atrações verificadas
             </h2>
 
             <div className="grid gap-4 md:grid-cols-3">
-              {attractions.map((attraction) => {
-                const color = typeColors[attraction.type] || typeColors.outro;
-                return (
-                  <div
-                    key={attraction.id}
-                    className="rounded-sm border border-oliva-escuro/10 bg-off-2/60 backdrop-blur-sm p-4 shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300"
-                  >
-                    <div className="mb-2 flex items-center justify-between">
-                      <span className={`text-xs font-semibold uppercase tracking-wide ${color.text} ${color.bg} px-2 py-1 rounded`}>
-                        {attraction.type}
-                      </span>
-                      <span className="text-xs text-oliva-escuro/60">
-                        {attraction.distanceKm} km
-                      </span>
-                    </div>
-                    <h4 className="text-sm font-medium text-oliva-escuro mb-1">
-                      {attraction.name}
-                    </h4>
-                    <p className="text-xs text-oliva-escuro/70 leading-snug">
-                      {attraction.description}
-                    </p>
-                  </div>
-                );
-              })}
+              {attractions
+                .filter((a) => a.id !== "inhotim")
+                .map((attraction) => {
+                  const color = typeColors[attraction.type] || typeColors.outro;
+                  const href = attraction.website || attraction.googleMapsUrl;
+                  const CardComponent = href ? "a" : "div";
+
+                  return (
+                    <CardComponent
+                      key={attraction.id}
+                      href={href}
+                      target={href ? "_blank" : undefined}
+                      rel={href ? "noopener noreferrer" : undefined}
+                      className={`rounded-sm border border-oliva-escuro/10 bg-off-2/60 backdrop-blur-sm p-4 shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 ${href ? "cursor-pointer hover:border-terracota" : ""}`}
+                    >
+                      <div className="mb-2 flex items-center justify-between">
+                        <span className={`text-xs font-semibold uppercase tracking-wide ${color.text} ${color.bg} px-2 py-1 rounded`}>
+                          {attraction.type}
+                        </span>
+                        <span className="text-xs text-oliva-escuro/60">
+                          {attraction.distanceKm} km
+                        </span>
+                      </div>
+                      <h4 className="text-sm font-medium text-oliva-escuro mb-1">
+                        {attraction.name}
+                      </h4>
+                      <p className="text-xs text-oliva-escuro/70 leading-snug">
+                        {attraction.description}
+                      </p>
+                      {href && (
+                        <p className="text-xs text-terracota mt-3 font-medium">
+                          {attraction.website ? "↗ Visitar" : "↗ Ver no Google"}
+                        </p>
+                      )}
+                    </CardComponent>
+                  );
+                })}
             </div>
           </div>
 
