@@ -6,6 +6,7 @@
   --color-terracota: #8a4b2f;
   --color-off-1: #eee8dc;
   --color-off-2: #f9efdc;
+  --color-off-white: #fafafa;
 
   --font-heading: var(--font-jost);
   --font-body: var(--font-jost);
@@ -38,6 +39,10 @@
     var(--color-oliva-escuro) 0%,
     color-mix(in srgb, var(--color-oliva-escuro) 80%, black) 100%
   );
+}
+
+@utility blur-xs {
+  backdrop-filter: blur(2px);
 }
 
 html,
