@@ -5,9 +5,10 @@ import { property } from "@/content/data/property";
 const NAV_LINKS = [
   { href: "/a-casa", label: "A Casa" },
   { href: "/galeria", label: "Galeria" },
-  { href: "/o-que-fazer", label: "O que fazer" },
+  { href: "/a-regiao", label: "A Região" },
   { href: "/anfitria", label: "Anfitriã" },
   { href: "/avaliacoes", label: "Avaliações" },
+  { href: "/guia-do-anfitriao", label: "Guia do Anfitrião" },
   { href: "/faq", label: "FAQ" },
 ];
 
