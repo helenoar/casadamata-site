@@ -65,8 +65,8 @@ export default async function InhotimEAtracoesPage() {
 
           <div className="h-[360px] overflow-hidden border-t-[3px] border-terracota md:h-[460px] shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 will-change-transform">
             <Image
-              src="/images/exterior-container-jardim.jpg"
-              alt="Casa da Mata em meio à natureza, ponto de partida para explorar atrações turísticas"
+              src="/images/Guia turístico/topo-do-mundo.jpg"
+              alt="Topo do Mundo - Serra da Moeda com vistas panorâmicas de 360 graus"
               width={900}
               height={900}
               className="h-full w-full object-cover"
@@ -92,7 +92,7 @@ export default async function InhotimEAtracoesPage() {
                   <div className="grid md:grid-cols-2 gap-0">
                     <div className="h-[360px] md:h-[460px] overflow-hidden">
                       <Image
-                        src="https://images.unsplash.com/photo-1578874691223-04266b84c73d?auto=format&fit=crop&w=900&q=80"
+                        src="/images/Guia turístico/turismo-inhotim-1712286116.jpeg"
                         alt="Instituto Inhotim - museu de arte contemporânea a céu aberto em Brumadinho"
                         width={900}
                         height={500}
