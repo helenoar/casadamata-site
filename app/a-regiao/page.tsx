@@ -52,7 +52,7 @@ export default function ARegiaoPage() {
               <div className="grid md:grid-cols-2 gap-0 bg-off-1">
                 <div className="h-[280px] md:h-[360px] overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1578874691223-04266b84c73d?auto=format&fit=crop&w=600&q=80"
+                    src="/images/A região/inhotim.jpeg"
                     alt="Instituto Inhotim - museu de arte contemporânea a céu aberto"
                     width={600}
                     height={360}
@@ -88,23 +88,43 @@ export default function ARegiaoPage() {
         Guias da Região
       </h2>
       <div className="grid gap-10 md:grid-cols-3">
-        {guides.map(({ slug, frontmatter }, index) => (
-          <Reveal key={slug} delayMs={index * 80}>
-            <div className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-6 md:p-8 mb-20">
+        {guides.map(({ slug, frontmatter }, index) => {
+          const imageMap: Record<string, string> = {
+            "macacos-sao-sebastiao-das-aguas-claras": "/images/A região/macacos.jpg",
+            "trilhas-ribeirao-dos-macacos": "/images/A região/trilhas.jpg",
+            "vale-do-sol": "/images/A região/vale do sol.jpg",
+          };
+          const imageUrl = imageMap[slug] || "/images/A região/macacos.jpg";
+
+          return (
+            <Reveal key={slug} delayMs={index * 80}>
               <Link
                 href={`/a-regiao/${slug}`}
-                className="block rounded-sm border-x border-b border-oliva-escuro/10 border-t-2 border-t-terracota/60 bg-off-1/50 backdrop-blur-sm p-6 shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300"
+                className="group block"
               >
-                <h3 className="mb-2 text-lg font-medium text-oliva-escuro">
-                  {frontmatter.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-oliva-escuro/80">
-                  {frontmatter.description}
-                </p>
+                <div className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg overflow-hidden shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                  <div className="h-[200px] overflow-hidden">
+                    <Image
+                      src={imageUrl}
+                      alt={frontmatter.title}
+                      width={400}
+                      height={200}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-1 bg-off-1/50">
+                    <h3 className="mb-2 text-lg font-medium text-oliva-escuro">
+                      {frontmatter.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-oliva-escuro/80">
+                      {frontmatter.description}
+                    </p>
+                  </div>
+                </div>
               </Link>
-            </div>
-          </Reveal>
-        ))}
+            </Reveal>
+          );
+        })}
       </div>
     </main>
   );
