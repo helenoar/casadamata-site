@@ -27,32 +27,32 @@ const SECTION_HEADINGS = new Set([
 
 const ILLUSTRATION_PHOTOS = [
   {
-    src: "/images/A casa/INTERIORBANHEIRO.jpg",
+    src: "/images/foto-1.jpg",
     alt: "Banheiro minimalista da Casa da Mata",
     size: "large",
   },
   {
-    src: "/images/A casa/INTERIOR3.jpg",
+    src: "/images/foto-2.jpg",
     alt: "Kitchenette integrada com living",
     size: "small",
   },
   {
-    src: "/images/A casa/INTERIOR7.jpg",
+    src: "/images/foto-3.jpg",
     alt: "Kitchenette e sala em outro ângulo",
     size: "small",
   },
   {
-    src: "/images/A casa/Interior1.jpg",
+    src: "/images/foto-4.jpg",
     alt: "Quarto suite com vista para varanda",
     size: "large",
   },
   {
-    src: "/images/A casa/INTERIOR9.jpg",
+    src: "/images/foto-5.jpg",
     alt: "Quarto suite integrado ao living",
     size: "small",
   },
   {
-    src: "/images/A casa/interior-quarto-closet.jpg",
+    src: "/images/foto-6.jpg",
     alt: "Interior do quarto com closet",
     size: "medium",
   },
