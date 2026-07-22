@@ -29,18 +29,32 @@ const ILLUSTRATION_PHOTOS = [
   {
     src: "/images/interior-quarto-closet.jpg",
     alt: "Interior da Casa da Mata: quarto, closet e cozinha integrados",
+    size: "large",
   },
   {
     src: "/images/chuveiro-externo.jpg",
     alt: "Chuveiro externo de madeira da Casa da Mata",
+    size: "small",
   },
   {
     src: "/images/jantar-externo.jpg",
     alt: "Mesa de jantar externa da Casa da Mata em meio ao jardim",
+    size: "small",
   },
   {
     src: "/images/exterior-deck-rede.jpg",
     alt: "Deck externo e varanda com rede da Casa da Mata ao entardecer",
+    size: "large",
+  },
+  {
+    src: "/images/exterior-container-jardim.jpg",
+    alt: "Vista geral do container e jardim da Casa da Mata",
+    size: "small",
+  },
+  {
+    src: "/images/cozinha-varanda-noite.jpg",
+    alt: "Cozinha e varanda ao entardecer",
+    size: "medium",
   },
 ];
 
@@ -97,21 +111,34 @@ export default function ACasaPage() {
             )}
           </div>
 
-          <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4">
-            {ILLUSTRATION_PHOTOS.map((photo) => (
-              <div
-                key={photo.src}
-                className="h-[220px] overflow-hidden border-t-[3px] border-terracota shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 will-change-transform"
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={450}
-                  height={450}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            ))}
+          <div className="mt-14 grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[220px] md:auto-rows-[250px]">
+            {ILLUSTRATION_PHOTOS.map((photo) => {
+              let colSpan = "col-span-1";
+              let rowSpan = "row-span-1";
+
+              if (photo.size === "large") {
+                colSpan = "md:col-span-2 lg:col-span-2";
+                rowSpan = "md:row-span-2 lg:row-span-2";
+              } else if (photo.size === "medium") {
+                colSpan = "md:col-span-2 lg:col-span-1";
+                rowSpan = "md:row-span-1";
+              }
+
+              return (
+                <div
+                  key={photo.src}
+                  className={`${colSpan} ${rowSpan} overflow-hidden border-t-[3px] border-terracota shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 will-change-transform`}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={600}
+                    height={600}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

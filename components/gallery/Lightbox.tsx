@@ -65,7 +65,7 @@ export function Lightbox({
 
       {/* Image container */}
       <div
-        className="relative w-full h-full max-w-4xl max-h-[80vh] flex items-center justify-center"
+        className="relative w-full h-full max-w-6xl max-h-[90vh] flex items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
         <Image
@@ -73,7 +73,7 @@ export function Lightbox({
           alt={photo.alt}
           fill
           className="object-contain"
-          sizes="(max-width: 768px) 100vw, 80vw"
+          sizes="(max-width: 768px) 100vw, 90vw"
           priority
         />
       </div>
