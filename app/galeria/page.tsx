@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 
-import { galleryPhotos } from "@/content/data/photos";
+import { galleryPhotos, galleryCategories } from "@/content/data/gallery";
+import { GalleryCarousel } from "@/components/gallery/GalleryCarousel";
 import { BackToHomeHeader } from "@/components/layout/BackToHomeHeader";
 import { BreadcrumbJsonLd } from "@/components/schema/BreadcrumbJsonLd";
 import { pageMetadata } from "@/lib/seo";
@@ -13,11 +13,6 @@ export const metadata: Metadata = pageMetadata({
   path: "/galeria",
 });
 
-const categoryLabels: Record<string, string> = {
-  interno: "Interior",
-  externo: "Exterior",
-};
-
 export default function GaleriaPage() {
   const photosByCategory = galleryPhotos.reduce(
     (acc, photo) => {
@@ -28,10 +23,6 @@ export default function GaleriaPage() {
       return acc;
     },
     {} as Record<string, typeof galleryPhotos>,
-  );
-
-  const categories = (Object.keys(photosByCategory) as Array<keyof typeof photosByCategory>).sort(
-    (a, b) => categoryLabels[a].localeCompare(categoryLabels[b]),
   );
 
   return (
@@ -53,33 +44,21 @@ export default function GaleriaPage() {
       >
         Conheça os ambientes da Casa da Mata
       </h1>
-      <p className="mb-14 max-w-2xl text-sm leading-relaxed text-oliva-escuro">
+      <p className="mb-20 max-w-2xl text-sm leading-relaxed text-oliva-escuro">
         Explore a casa contêiner de 90 m² no coração da Mata Atlântica. Interior arejado e minimalista, exterior integrado
         ao jardim com riacho, fogo de chão e redário.
       </p>
 
-      {categories.map((category) => (
-        <section key={category} className="mb-24">
+      {galleryCategories.map((category) => (
+        <section key={category.id} className="mb-24">
           <h2 className="mb-8 text-2xl font-light text-oliva-escuro">
-            {categoryLabels[category]}
+            {category.label}
           </h2>
 
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-            {photosByCategory[category].map((photo) => (
-              <div
-                key={photo.src}
-                className="h-[220px] overflow-hidden border-t-[3px] border-terracota shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 will-change-transform"
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={450}
-                  height={450}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
+          <GalleryCarousel
+            photos={photosByCategory[category.id] || []}
+            category={category.id}
+          />
         </section>
       ))}
     </main>
