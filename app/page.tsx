@@ -17,13 +17,25 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      <Hero />
+      <div className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-6 md:p-8 lg:p-12 mb-20">
+        <Hero />
+      </div>
       <HeroPhotoStrip />
-      <Diferenciais />
-      <AmenitiesPreview />
-      <ReviewsPreview />
-      <HostSection />
-      <AtracoesProximas />
+      <div className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-6 md:p-8 lg:p-12 mb-20">
+        <Diferenciais />
+      </div>
+      <div className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-6 md:p-8 lg:p-12 mb-20">
+        <AmenitiesPreview />
+      </div>
+      <div className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-6 md:p-8 lg:p-12 mb-20">
+        <ReviewsPreview />
+      </div>
+      <div className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-6 md:p-8 lg:p-12 mb-20">
+        <HostSection />
+      </div>
+      <div className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-6 md:p-8 lg:p-12 mb-20">
+        <AtracoesProximas />
+      </div>
       <CtaAirbnb />
     </main>
   );

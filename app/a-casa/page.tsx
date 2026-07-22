@@ -65,81 +65,85 @@ export default function ACasaPage() {
         ]}
       />
       <section className="w-full px-6 pt-10 pb-16 md:px-16 lg:px-24">
-        <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
-          A casa
-        </p>
-        <h1
-          className="mb-8 max-w-5xl font-light leading-[1.05] text-oliva-escuro"
-          style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
-        >
-          Refúgio de Luxo para 2
-        </h1>
-        <FactList facts={highlightFacts} className="mb-14" />
+        <div className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-6 md:p-8 mb-20">
+          <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
+            A casa
+          </p>
+          <h1
+            className="mb-8 max-w-5xl font-light leading-[1.05] text-oliva-escuro"
+            style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
+          >
+            Refúgio de Luxo para 2
+          </h1>
+          <FactList facts={highlightFacts} className="mb-14" />
 
-        <div>
-          {property.descriptionParagraphs.map((paragraph, index) =>
-            SECTION_HEADINGS.has(paragraph) ? (
-              <h2
-                key={index}
-                className="mt-12 mb-4 text-2xl font-medium text-oliva-escuro first:mt-0"
-              >
-                {paragraph}
-              </h2>
-            ) : (
-              <p
-                key={index}
-                className="mb-4 leading-relaxed text-oliva-escuro"
-              >
-                {paragraph}
-              </p>
-            ),
-          )}
-        </div>
+          <div>
+            {property.descriptionParagraphs.map((paragraph, index) =>
+              SECTION_HEADINGS.has(paragraph) ? (
+                <h2
+                  key={index}
+                  className="mt-12 mb-4 text-2xl font-medium text-oliva-escuro first:mt-0"
+                >
+                  {paragraph}
+                </h2>
+              ) : (
+                <p
+                  key={index}
+                  className="mb-4 leading-relaxed text-oliva-escuro"
+                >
+                  {paragraph}
+                </p>
+              ),
+            )}
+          </div>
 
-        <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4">
-          {ILLUSTRATION_PHOTOS.map((photo) => (
-            <div
-              key={photo.src}
-              className="h-[220px] overflow-hidden border-t-[3px] border-terracota shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 will-change-transform"
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                width={450}
-                height={450}
-                className="h-full w-full object-cover"
-              />
-            </div>
-          ))}
+          <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4">
+            {ILLUSTRATION_PHOTOS.map((photo) => (
+              <div
+                key={photo.src}
+                className="h-[220px] overflow-hidden border-t-[3px] border-terracota shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300 will-change-transform"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={450}
+                  height={450}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="w-full bg-off-1 px-6 py-24 md:px-16 lg:px-24">
-        <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
-          Comodidades
-        </p>
-        <h2
-          className="mb-14 font-light text-oliva-escuro"
-          style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
-        >
-          Todas as {amenityTotalCount} comodidades, por ambiente.
-        </h2>
+        <div className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-6 md:p-8 mb-20">
+          <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
+            Comodidades
+          </p>
+          <h2
+            className="mb-14 font-light text-oliva-escuro"
+            style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
+          >
+            Todas as {amenityTotalCount} comodidades, por ambiente.
+          </h2>
 
-        <div className="grid gap-x-12 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
-          {amenityCategories.map((category) => (
-            <Reveal key={category.category}>
-            <div className="rounded-sm border-x border-b border-oliva-escuro/10 border-t-2 border-t-terracota/60 bg-off-1/60 backdrop-blur-sm p-6 shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300">
-              <h3 className="mb-4 text-lg font-medium text-oliva-escuro">
-                {category.category}
-              </h3>
-              <ul className="flex flex-col gap-2 text-sm leading-relaxed text-oliva-escuro">
-                {category.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            </Reveal>
-          ))}
+          <div className="grid gap-x-12 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+            {amenityCategories.map((category) => (
+              <Reveal key={category.category}>
+              <div className="rounded-sm border-x border-b border-oliva-escuro/10 border-t-2 border-t-terracota/60 bg-off-1/60 backdrop-blur-sm p-6 shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300">
+                <h3 className="mb-4 text-lg font-medium text-oliva-escuro">
+                  {category.category}
+                </h3>
+                <ul className="flex flex-col gap-2 text-sm leading-relaxed text-oliva-escuro">
+                  {category.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

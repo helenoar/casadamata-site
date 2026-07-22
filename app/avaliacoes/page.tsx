@@ -49,45 +49,47 @@ export default function AvaliacoesPage() {
           { name: "Avaliações", path: "/avaliacoes" },
         ]}
       />
-      <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
-        Quem já ficou
-      </p>
-      <h1
-        className="mb-10 max-w-5xl font-light leading-[1.05] text-oliva-escuro"
-        style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
-      >
-        O que os hóspedes dizem sobre a Casa da Mata?
-      </h1>
+      <div className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-8 mb-20">
+        <p className="mb-4 text-xs tracking-[0.2em] text-terracota uppercase">
+          Quem já ficou
+        </p>
+        <h1
+          className="mb-10 max-w-5xl font-light leading-[1.05] text-oliva-escuro"
+          style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
+        >
+          O que os hóspedes dizem sobre a Casa da Mata?
+        </h1>
 
-      <FactList facts={summaryFacts} className="mb-10" />
+        <FactList facts={summaryFacts} className="mb-10" />
 
-      <div className="mb-16 flex flex-wrap gap-x-3 gap-y-2 text-sm text-oliva-escuro">
-        <span className="text-xs tracking-[0.15em] text-terracota uppercase">
-          Mais citado nas avaliações:
-        </span>
-        {reviewsSummary.mostMentionedWords.map((word, index) => (
-          <span key={word.word}>
-            {word.word} ({word.count})
-            {index < reviewsSummary.mostMentionedWords.length - 1 ? " ·" : ""}
+        <div className="mb-16 flex flex-wrap gap-x-3 gap-y-2 text-sm text-oliva-escuro">
+          <span className="text-xs tracking-[0.15em] text-terracota uppercase">
+            Mais citado nas avaliações:
           </span>
-        ))}
-      </div>
+          {reviewsSummary.mostMentionedWords.map((word, index) => (
+            <span key={word.word}>
+              {word.word} ({word.count})
+              {index < reviewsSummary.mostMentionedWords.length - 1 ? " ·" : ""}
+            </span>
+          ))}
+        </div>
 
-      <a
-        href="https://www.airbnb.com.br/rooms/1537170854409354731/reviews"
-        target="_blank"
-        rel="noopener"
-        className="mb-16 inline-block border-b border-terracota text-sm tracking-wide text-terracota uppercase"
-      >
-        Ver todas as avaliações no Airbnb →
-      </a>
+        <a
+          href="https://www.airbnb.com.br/rooms/1537170854409354731/reviews"
+          target="_blank"
+          rel="noopener"
+          className="mb-16 inline-block border-b border-terracota text-sm tracking-wide text-terracota uppercase"
+        >
+          Ver todas as avaliações no Airbnb →
+        </a>
+      </div>
 
       <Reveal>
       <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
         {reviews.map((review) => (
           <blockquote
             key={review.id}
-            className="rounded-sm border-y border-r border-oliva-escuro/10 border-l-2 border-l-terracota bg-off-1/50 backdrop-blur-sm p-6 shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300"
+            className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-6 mb-6"
           >
             <StarRating rating={review.rating} className="mb-[0.85rem]" />
             <p className="mb-4 leading-relaxed text-oliva-escuro">

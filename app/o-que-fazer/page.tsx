@@ -43,17 +43,19 @@ export default function OQueFazerPage() {
       <div className="grid gap-10 md:grid-cols-3">
         {guides.map(({ slug, frontmatter }, index) => (
           <Reveal key={slug} delayMs={index * 80}>
-          <Link
-            href={`/o-que-fazer/${slug}`}
-            className="block rounded-sm border-x border-b border-oliva-escuro/10 border-t-2 border-t-terracota/60 bg-off-1/50 backdrop-blur-sm p-6 shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300"
-          >
-            <h2 className="mb-2 text-lg font-medium text-oliva-escuro">
-              {frontmatter.title}
-            </h2>
-            <p className="text-sm leading-relaxed text-oliva-escuro/80">
-              {frontmatter.description}
-            </p>
-          </Link>
+            <div className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-6 md:p-8 mb-20">
+              <Link
+                href={`/o-que-fazer/${slug}`}
+                className="block rounded-sm border-x border-b border-oliva-escuro/10 border-t-2 border-t-terracota/60 bg-off-1/50 backdrop-blur-sm p-6 shadow-soft hover:shadow-lifted hover:-translate-y-1 transition-all duration-300"
+              >
+                <h2 className="mb-2 text-lg font-medium text-oliva-escuro">
+                  {frontmatter.title}
+                </h2>
+                <p className="text-sm leading-relaxed text-oliva-escuro/80">
+                  {frontmatter.description}
+                </p>
+              </Link>
+            </div>
           </Reveal>
         ))}
       </div>
