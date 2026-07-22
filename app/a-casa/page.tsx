@@ -27,33 +27,33 @@ const SECTION_HEADINGS = new Set([
 
 const ILLUSTRATION_PHOTOS = [
   {
-    src: "/images/interior-quarto-closet.jpg",
-    alt: "Interior da Casa da Mata: quarto, closet e cozinha integrados",
+    src: "/images/A casa/INTERIORBANHEIRO.jpg",
+    alt: "Banheiro minimalista da Casa da Mata",
     size: "large",
   },
   {
-    src: "/images/chuveiro-externo.jpg",
-    alt: "Chuveiro externo de madeira da Casa da Mata",
+    src: "/images/A casa/INTERIOR3.jpg",
+    alt: "Kitchenette integrada com living",
     size: "small",
   },
   {
-    src: "/images/jantar-externo.jpg",
-    alt: "Mesa de jantar externa da Casa da Mata em meio ao jardim",
+    src: "/images/A casa/INTERIOR7.jpg",
+    alt: "Kitchenette e sala em outro ângulo",
     size: "small",
   },
   {
-    src: "/images/exterior-deck-rede.jpg",
-    alt: "Deck externo e varanda com rede da Casa da Mata ao entardecer",
+    src: "/images/A casa/Interior1.jpg",
+    alt: "Quarto suite com vista para varanda",
     size: "large",
   },
   {
-    src: "/images/exterior-container-jardim.jpg",
-    alt: "Vista geral do container e jardim da Casa da Mata",
+    src: "/images/A casa/INTERIOR9.jpg",
+    alt: "Quarto suite integrado ao living",
     size: "small",
   },
   {
-    src: "/images/cozinha-varanda-noite.jpg",
-    alt: "Cozinha e varanda ao entardecer",
+    src: "/images/A casa/interior-quarto-closet.jpg",
+    alt: "Interior do quarto com closet",
     size: "medium",
   },
 ];
