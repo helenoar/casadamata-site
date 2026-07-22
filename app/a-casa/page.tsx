@@ -35,8 +35,12 @@ const ILLUSTRATION_PHOTOS = [
     alt: "Kitchenette integrada com living",
   },
   {
+    src: "/images/foto-3.jpg",
+    alt: "Kitchenette vista integrada",
+  },
+  {
     src: "/images/foto-4.jpg",
-    alt: "Vista integrada dos ambientes",
+    alt: "Ambientes integrados da casa",
   },
   {
     src: "/images/foto-5.jpg",

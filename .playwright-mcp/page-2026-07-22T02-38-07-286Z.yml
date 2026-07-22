@@ -1,0 +1,170 @@
+- generic [active] [ref=f1e1]:
+  - banner [ref=f1e3]:
+    - generic [ref=f1e4]:
+      - generic [ref=f1e5]: CASA DA MATA
+      - generic [ref=f1e6]: "45"
+    - navigation [ref=f1e7]:
+      - link "A Casa" [ref=f1e8] [cursor=pointer]:
+        - /url: /a-casa
+      - link "Galeria" [ref=f1e9] [cursor=pointer]:
+        - /url: /galeria
+      - link "A Região" [ref=f1e10] [cursor=pointer]:
+        - /url: /a-regiao
+      - link "Anfitriã" [ref=f1e11] [cursor=pointer]:
+        - /url: /anfitria
+      - link "Avaliações" [ref=f1e12] [cursor=pointer]:
+        - /url: /avaliacoes
+      - link "Guia do Anfitrião" [ref=f1e13] [cursor=pointer]:
+        - /url: /guia-do-anfitriao
+      - link "FAQ" [ref=f1e14] [cursor=pointer]:
+        - /url: /faq
+    - link "Reservar" [ref=f1e15] [cursor=pointer]:
+      - /url: https://www.airbnb.com.br/h/casadamata45
+  - main [ref=f1e16]:
+    - link "← Voltar para Home" [ref=f1e18] [cursor=pointer]:
+      - /url: /
+    - generic [ref=f1e20]:
+      - paragraph [ref=f1e21]: A casa
+      - heading "Refúgio de Luxo para 2" [level=1] [ref=f1e22]
+      - list [ref=f1e23]:
+        - listitem [ref=f1e24]: 1000 m² de Mata Atlântica
+        - listitem [ref=f1e25]: Riacho privado
+        - listitem [ref=f1e26]: Fogo de chão
+        - listitem [ref=f1e27]: Redes na mata
+        - listitem [ref=f1e28]: Chuveiro ao ar livre
+        - listitem [ref=f1e29]: Quarto integrado
+      - generic [ref=f1e30]:
+        - paragraph [ref=f1e31]: Casa da Mata – uma experiência inesquecível em meio à natureza do Pasárgada
+        - paragraph [ref=f1e32]: A Casa da Mata é uma hospedagem em meio à natureza — uma casa contêiner elegante, arejada e acolhedora, pensada para quem busca descanso, conforto e inspiração.
+        - paragraph [ref=f1e33]: Entre no ritmo suave da mata e deixe-se envolver pelos sons, pelos cantos dos pássaros, pelos cheiros e silêncios que inspiram presença.
+        - heading "O espaço" [level=2] [ref=f1e34]
+        - paragraph [ref=f1e35]: A Casa da Mata é cercada por montanhas e árvores frondosas da Mata Atlântica, com águas doces ao redor, além de uma rede na varanda e um redário que convidam a relaxar e se deixar levar pelo balanço.
+        - paragraph [ref=f1e36]: Localizada no Condomínio Pasárgada, a apenas 26 km do BH Shopping, sentido Rio de Janeiro, oferece uma experiência segura e acolhedora em meio à natureza.
+        - paragraph [ref=f1e37]: Ideal para quem busca se reconectar, caminhar com os pés descalços entre as árvores, sentir a força da natureza — com o aconchego sereno de um lar contemporâneo.
+        - paragraph [ref=f1e38]: Aqui, o tempo desacelera, e cada instante convida a viver o essencial.
+        - paragraph [ref=f1e39]: Mais que uma hospedagem, a Casa da Mata oferece uma experiência. Cada detalhe foi pensado para unir conforto, natureza e estilo — um refúgio que inspira presença, calma e bem-estar.
+        - heading "Acesso do hóspede" [level=2] [ref=f1e40]
+        - paragraph [ref=f1e41]: Você terá acesso completo à Casa da Mata, com seu amplo quintal gramado de 1000 m², cercado pela natureza e pelas áreas verdes do condomínio fechado. Todo o entorno externo conta com monitoramento por câmeras, garantindo mais tranquilidade durante a estadia. Disponibilizamos internet de fibra óptica de alta velocidade, ideal para trabalho, lazer ou streaming.
+        - heading "Outras observações" [level=2] [ref=f1e42]
+        - paragraph [ref=f1e43]: NÃO SÃO PERMITIDAS VISITAS. A portaria é controlada e o acesso ao condomínio é rigorosamente monitorado. As ruas contam com câmeras de vigilância e rondas 24 horas. A entrada é permitida apenas aos hóspedes previamente autorizados pelo anfitrião. O local conta com entregas de aplicativos como iFood e diversos restaurantes nas proximidades.
+      - generic [ref=f1e44]:
+        - 'img "Interior da Casa da Mata: quarto, closet e cozinha integrados" [ref=f1e46]'
+        - img "Chuveiro externo de madeira da Casa da Mata" [ref=f1e48]
+        - img "Mesa de jantar externa da Casa da Mata em meio ao jardim" [ref=f1e50]
+        - img "Deck externo e varanda com rede da Casa da Mata ao entardecer" [ref=f1e52]
+        - img "Banheiro minimalista da Casa da Mata" [ref=f1e54]
+        - img "Cozinha integrada com vista para o jardim" [ref=f1e56]
+    - generic [ref=f1e58]:
+      - paragraph [ref=f1e59]: Comodidades
+      - heading "Todas as 51 comodidades, por ambiente." [level=2] [ref=f1e60]
+      - generic [ref=f1e61]:
+        - generic [ref=f1e63]:
+          - heading "Banheiro" [level=3] [ref=f1e64]
+          - list [ref=f1e65]:
+            - listitem [ref=f1e66]: Secador de cabelo
+            - listitem [ref=f1e67]: Produtos de limpeza
+            - listitem [ref=f1e68]: Xampu
+            - listitem [ref=f1e69]: Condicionador
+            - listitem [ref=f1e70]: Sabonete para o corpo
+            - listitem [ref=f1e71]: Chuveiro externo
+            - listitem [ref=f1e72]: Água quente
+        - generic [ref=f1e74]:
+          - heading "Quarto e lavanderia" [level=3] [ref=f1e75]
+          - list [ref=f1e76]:
+            - listitem [ref=f1e77]: Itens básicos (toalhas, lençóis, sabonete, papel higiênico)
+            - listitem [ref=f1e78]: Cabides
+            - listitem [ref=f1e79]: Roupas de cama de algodão da Buddemeyer
+            - listitem [ref=f1e80]: Cobertores e travesseiros extras
+            - listitem [ref=f1e81]: Cortinas blackout
+            - listitem [ref=f1e82]: Local para guardar as roupas
+        - generic [ref=f1e84]:
+          - heading "Entretenimento" [level=3] [ref=f1e85]
+          - list [ref=f1e86]:
+            - listitem [ref=f1e87]: Conexão Ethernet
+            - listitem [ref=f1e88]: TV
+            - listitem [ref=f1e89]: Livros e material de leitura
+        - generic [ref=f1e91]:
+          - heading "Climatização" [level=3] [ref=f1e92]
+          - list [ref=f1e93]:
+            - listitem [ref=f1e94]: Ar-condicionado
+            - listitem [ref=f1e95]: Aquecedor split
+        - generic [ref=f1e97]:
+          - heading "Segurança doméstica" [level=3] [ref=f1e98]
+          - list [ref=f1e99]:
+            - listitem [ref=f1e100]: Câmeras de segurança na parte externa da propriedade (ruas com vigilância e rondas 24h, entrada só para hóspedes autorizados)
+            - listitem [ref=f1e101]: Kit de primeiros socorros
+        - generic [ref=f1e103]:
+          - heading "Internet e escritório" [level=3] [ref=f1e104]
+          - list [ref=f1e105]:
+            - listitem [ref=f1e106]: Wi-Fi
+            - listitem [ref=f1e107]: Espaço de trabalho exclusivo
+        - generic [ref=f1e109]:
+          - heading "Cozinha e sala de jantar" [level=3] [ref=f1e110]
+          - list [ref=f1e111]:
+            - listitem [ref=f1e112]: Cozinha completa
+            - listitem [ref=f1e113]: Geladeira Eletrolux
+            - listitem [ref=f1e114]: Micro-ondas
+            - listitem [ref=f1e115]: Itens básicos (vasilhas, panelas, óleo, sal, pimenta)
+            - listitem [ref=f1e116]: Pratos e talheres (tigelas, hashi, copos etc.)
+            - listitem [ref=f1e117]: Fogão a gás de aço inoxidável
+            - listitem [ref=f1e118]: Forno Consul de aço inoxidável
+            - listitem [ref=f1e119]: Cafeteira com coador
+            - listitem [ref=f1e120]: Taças de vinho
+            - listitem [ref=f1e121]: Assadeira
+            - listitem [ref=f1e122]: Liquidificador
+            - listitem [ref=f1e123]: Mesa de jantar
+        - generic [ref=f1e125]:
+          - heading "Características da localização" [level=3] [ref=f1e126]
+          - list [ref=f1e127]:
+            - listitem [ref=f1e128]: Entrada privada (por outra rua/prédio)
+            - listitem [ref=f1e129]: Lavanderia nas proximidades
+        - generic [ref=f1e131]:
+          - heading "Área externa" [level=3] [ref=f1e132]
+          - list [ref=f1e133]:
+            - listitem [ref=f1e134]: Pátio/varanda privativa
+            - listitem [ref=f1e135]: Quintal privado totalmente cercado
+            - listitem [ref=f1e136]: Área aberta gramada
+            - listitem [ref=f1e137]: Lareira externa (fogo de chão)
+            - listitem [ref=f1e138]: Móveis de área externa
+            - listitem [ref=f1e139]: Rede
+            - listitem [ref=f1e140]: Área de jantar externa
+        - generic [ref=f1e142]:
+          - heading "Estacionamento e instalações" [level=3] [ref=f1e143]
+          - list [ref=f1e144]:
+            - listitem [ref=f1e145]: Estacionamento gratuito no local
+        - generic [ref=f1e147]:
+          - heading "Serviços" [level=3] [ref=f1e148]
+          - list [ref=f1e149]:
+            - listitem [ref=f1e150]: Bagagem pode ficar guardada (chegada cedo/saída tarde)
+            - listitem [ref=f1e151]: Estadias de longa duração permitidas (28+ dias)
+            - listitem [ref=f1e152]: Self check-in com cofre de chaves
+        - generic [ref=f1e154]:
+          - heading "Não incluso" [level=3] [ref=f1e155]
+          - list [ref=f1e156]:
+            - listitem [ref=f1e157]: Sem máquina de lavar
+            - listitem [ref=f1e158]: Sem secadora
+            - listitem [ref=f1e159]: Sem detector de fumaça
+            - listitem [ref=f1e160]: Sem detector de monóxido de carbono
+    - generic [ref=f1e162]:
+      - heading "Regras da casa" [level=2] [ref=f1e163]
+      - list [ref=f1e164]:
+        - listitem [ref=f1e165]: Check-in após 14:00
+        - listitem [ref=f1e166]: Checkout antes das 11:00
+        - listitem [ref=f1e167]: Máximo de 2 hóspedes
+        - listitem [ref=f1e168]: Visitas não são permitidas
+        - listitem [ref=f1e169]: "Cancelamento: política padrão do Airbnb (varia conforme datas)"
+      - link "Ver disponibilidade no Airbnb" [ref=f1e170] [cursor=pointer]:
+        - /url: https://www.airbnb.com.br/h/casadamata45
+  - contentinfo [ref=f1e172]:
+    - generic [ref=f1e173]:
+      - link "Hospedagem" [ref=f1e174] [cursor=pointer]:
+        - /url: /hospedagem-nova-lima-e-macacos
+      - link "Atrações Próximas" [ref=f1e175] [cursor=pointer]:
+        - /url: /inhotim-e-atracoes-turisticas
+      - link "O que fazer" [ref=f1e176] [cursor=pointer]:
+        - /url: /o-que-fazer
+      - link "Perguntas Frequentes" [ref=f1e177] [cursor=pointer]:
+        - /url: /faq
+    - generic [ref=f1e178]: Casa da Mata · Condomínio Pasárgada, Nova Lima — MG
+  - button "Open Next.js Dev Tools" [ref=f1e184] [cursor=pointer]
+  - alert [ref=f1e188]
