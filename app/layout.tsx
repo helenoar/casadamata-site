@@ -36,7 +36,7 @@ export default function RootLayout({
         <LodgingBusinessJsonLd />
         <TouristAttractionJsonLd attractions={topAttractions} />
       </head>
-      <body className={`${jost.variable} font-body bg-off-2 text-oliva-escuro antialiased`}>
+      <body className={`${jost.variable} font-body bg-off-white text-oliva-escuro antialiased`}>
         <BrandStripe />
         <Header />
         {children}
