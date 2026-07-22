@@ -148,19 +148,21 @@ export default function ACasaPage() {
       </section>
 
       <section className="w-full px-6 py-24 md:px-16 lg:px-24">
-        <h2 className="mb-6 text-2xl font-medium text-oliva-escuro">
-          Regras da casa
-        </h2>
-        <FactList facts={property.houseRules} />
+        <div className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-6 md:p-8 mb-20">
+          <h2 className="mb-6 text-2xl font-medium text-oliva-escuro">
+            Regras da casa
+          </h2>
+          <FactList facts={property.houseRules} />
 
-        <a
-          href={property.airbnbUrl}
-          target="_blank"
-          rel="noopener"
-          className="mt-14 inline-block bg-oliva-escuro px-8 py-4 text-sm tracking-wide text-off-2 uppercase"
-        >
-          Ver disponibilidade no Airbnb
-        </a>
+          <a
+            href={property.airbnbUrl}
+            target="_blank"
+            rel="noopener"
+            className="mt-14 inline-block backdrop-blur-xs bg-off-1/50 border border-terracota px-8 py-4 text-sm tracking-wide text-oliva-escuro uppercase hover:bg-off-1/70 transition-colors duration-200"
+          >
+            Ver disponibilidade no Airbnb
+          </a>
+        </div>
       </section>
     </main>
   );
