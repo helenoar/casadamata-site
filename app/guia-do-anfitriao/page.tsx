@@ -37,7 +37,7 @@ export default function GuiaDoAnfitriaoPage() {
         Tudo o que você precisa saber para aproveitar ao máximo sua estadia na Casa da Mata.
       </p>
 
-      <div className="max-w-3xl space-y-12">
+      <div className="max-w-5xl space-y-12">
         {/* Self Check-In */}
         <section>
           <h2 className="mb-4 text-2xl font-light text-oliva-escuro">
