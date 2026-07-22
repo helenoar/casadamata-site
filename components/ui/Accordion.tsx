@@ -18,11 +18,11 @@ export function Accordion({ items }: AccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className="flex flex-col divide-y divide-terracota/30 border-t border-b border-terracota/30">
+    <div className="flex flex-col gap-6">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         return (
-          <div key={item.question}>
+          <div key={item.question} className="backdrop-blur-sm bg-off-2/40 border border-terracota/20 rounded-lg p-6">
             <button
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : index)}

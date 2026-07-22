@@ -108,13 +108,13 @@ export function Hero() {
             href={property.airbnbUrl}
             target="_blank"
             rel="noopener"
-            className="bg-oliva-escuro px-8 py-4 text-sm tracking-wide text-off-2 uppercase"
+            className="backdrop-blur-xs bg-off-1/50 border border-terracota bg-oliva-escuro px-8 py-4 text-sm tracking-wide text-off-2 uppercase"
           >
             Ver disponibilidade no Airbnb
           </a>
           <Link
             href="/a-casa"
-            className="border border-oliva-escuro px-8 py-4 text-sm tracking-wide text-oliva-escuro uppercase"
+            className="backdrop-blur-xs bg-off-1/50 border border-terracota border-oliva-escuro px-8 py-4 text-sm tracking-wide text-oliva-escuro uppercase"
           >
             Conhecer a casa
           </Link>
