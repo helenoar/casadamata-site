@@ -63,7 +63,7 @@ export function AtracoesProximas() {
 
         <Link
           href="/inhotim-e-atracoes-turisticas"
-          className="inline-block border border-oliva-escuro px-8 py-4 text-sm tracking-wide text-oliva-escuro uppercase hover:bg-oliva-escuro hover:text-off-2 transition-colors"
+          className="inline-block backdrop-blur-xs bg-off-1/50 border border-terracota border-oliva-escuro px-8 py-4 text-sm tracking-wide text-oliva-escuro uppercase hover:bg-oliva-escuro hover:text-off-2 transition-colors"
         >
           Ver guia completo de atrações
         </Link>

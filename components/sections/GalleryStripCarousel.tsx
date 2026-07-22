@@ -59,7 +59,7 @@ export function GalleryStripCarousel() {
       </div>
       <Link
         href="/galeria"
-        className="mt-6 inline-block border-b border-terracota text-sm tracking-wide text-terracota uppercase"
+        className="mt-6 inline-block backdrop-blur-xs bg-off-1/50 border border-terracota border-b text-sm tracking-wide text-terracota uppercase"
       >
         Ver todas as fotos →
       </Link>

@@ -48,7 +48,7 @@ export function ReviewsPreview() {
 
       <Link
         href="/avaliacoes"
-        className="mt-14 inline-block border-b border-terracota text-sm tracking-wide text-terracota uppercase"
+        className="mt-14 inline-block backdrop-blur-xs bg-off-1/50 border border-terracota border-b text-sm tracking-wide text-terracota uppercase"
       >
         Ver todas as {property.reputation.reviewCount} avaliações →
       </Link>

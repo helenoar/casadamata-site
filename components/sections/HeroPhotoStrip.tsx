@@ -47,7 +47,7 @@ export function HeroPhotoStrip() {
         </div>
         <Link
           href="/galeria"
-          className="inline-block border-b border-terracota text-sm tracking-wide text-terracota uppercase"
+          className="inline-block backdrop-blur-xs bg-off-1/50 border border-terracota border-b text-sm tracking-wide text-terracota uppercase"
         >
           Ver todas as fotos →
         </Link>
